@@ -20,7 +20,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -32,7 +32,43 @@
       color: #4A4A4A;
     }
     h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Geist', sans-serif;
+      font-weight: 600;
+    }
+    
+    /* Enhanced typography hierarchy */
+    h1 {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    
+    h2 {
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    
+    h3 {
+      font-weight: 600;
+    }
+    
+    /* Service card titles */
+    .service-card h3 {
+      font-family: 'Geist', sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    
+    /* Body text improvements */
+    p, .service-list-item .content {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      line-height: 1.8;
+    }
+    
+    /* Strong text styling */
+    strong {
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
     }
     .theme-accent { color: #D4A59A; }
     .theme-bg-accent { background-color: #D4A59A; }
@@ -56,6 +92,127 @@
     .service-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 10px 20px rgba(0,0,0,0.07);
+    }
+
+    /* ✅ FIX: Better list item alignment */
+    .service-list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .service-list-item .icon {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .service-list-item .content {
+      flex: 1;
+      line-height: 1.5;
+    }
+
+    /* ✅ FIX: Mobile responsive improvements */
+    @media (max-width: 768px) {
+      .service-card {
+        padding: 1rem;
+        margin-bottom: 1rem;
+      }
+      .service-card h3 {
+        font-size: 1.25rem;
+        line-height: 1.3;
+      }
+      .service-list-item {
+        gap: 8px;
+        margin-bottom: 10px;
+      }
+      .service-list-item .content {
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+      
+      /* Better mobile spacing for sections */
+      section {
+        padding: 3rem 0;
+      }
+      
+      /* Improve mobile grid layout */
+      .flex.flex-wrap {
+        gap: 1rem;
+      }
+      
+      /* Better mobile typography with new fonts */
+      h1 {
+        font-size: 2.5rem;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+      }
+      
+      h2 {
+        font-size: 2rem;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+      }
+      
+      h3 {
+        font-size: 1.25rem;
+        line-height: 1.3;
+        letter-spacing: -0.01em;
+      }
+      
+      p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+      }
+      
+      .service-list-item .content {
+        font-size: 0.9rem;
+        line-height: 1.7;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .service-card {
+        padding: 0.75rem;
+        margin-bottom: 0.75rem;
+      }
+      .service-card h3 {
+        font-size: 1.125rem;
+        line-height: 1.2;
+      }
+      .service-list-item {
+        gap: 6px;
+        margin-bottom: 8px;
+      }
+      .service-list-item .content {
+        font-size: 0.85rem;
+        line-height: 1.6;
+      }
+      
+      /* Extra small mobile adjustments */
+      section {
+        padding: 2rem 0;
+      }
+      
+      h1 {
+        font-size: 2rem;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+      }
+      
+      h2 {
+        font-size: 1.75rem;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+      }
+      
+      h3 {
+        font-size: 1.125rem;
+        line-height: 1.2;
+      }
+      
+      .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
     }
 
     /* Floating Buttons, Animation, and Accordion (unchanged) */
@@ -105,10 +262,33 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* Accordion (unchanged) */
+    /* ✅ FIX: Improved Accordion for mobile */
     @media (max-width: 767px) {
-      .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-in-out; }
-      .accordion-content.expanded { max-height: 500px; margin-top: 1rem; }
+      .accordion-content { 
+        max-height: 0; 
+        overflow: hidden; 
+        transition: max-height 0.5s ease-in-out, padding 0.3s ease-in-out;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+      .accordion-content.expanded { 
+        max-height: 800px; 
+        padding-top: 1rem;
+        padding-bottom: 0.5rem;
+      }
+      
+      /* Better accordion header styling on mobile */
+      .accordion-header {
+        padding: 0.5rem 0;
+      }
+      
+      /* Smooth icon rotation */
+      .accordion-toggle-icon {
+        transition: transform 0.3s ease;
+      }
+      .accordion-toggle-icon.rotated {
+        transform: rotate(180deg);
+      }
     }
   </style>
 </head>
@@ -190,11 +370,23 @@
                            <i data-lucide="chevron-down" class="accordion-toggle-icon w-6 h-6 theme-accent md:hidden flex-shrink-0 ml-4"></i>
                         </div>
                         <div class="accordion-content">
-                            <ul class="space-y-3 text-gray-600 text-left">
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Chemical Peels – Reveals clearer skin by <strong>removing dead cells and unclogging pores.</strong></li>
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Laser Therapy – <strong>Kills acne-causing bacteria</strong> and calms inflammation for healthier skin.</li>
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Topical Treatments – Customized creams and lotions to <strong>prevent and treat breakouts effectively.</strong></li>
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Microdermabrasion – <strong>Gently exfoliates dead skin</strong> and diminishes the appearance of acne scars.</li>
+                            <ul class="text-gray-600 text-left">
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Chemical Peels – Reveals clearer skin by <strong>removing dead cells and unclogging pores.</strong></span>
+                                </li>
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Laser Therapy – <strong>Kills acne-causing bacteria</strong> and calms inflammation for healthier skin.</span>
+                                </li>
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Topical Treatments – Customized creams and lotions to <strong>prevent and treat breakouts effectively.</strong></span>
+                                </li>
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Microdermabrasion – <strong>Gently exfoliates dead skin</strong> and diminishes the appearance of acne scars.</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -210,11 +402,23 @@
                            <i data-lucide="chevron-down" class="accordion-toggle-icon w-6 h-6 theme-accent md:hidden flex-shrink-0 ml-4"></i>
                         </div>
                          <div class="accordion-content">
-                            <ul class="space-y-3 text-gray-600 text-left">
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Laser Treatment – <strong>Lightens dark spots</strong> and promotes a balanced, even skin tone.</li>
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Chemical Peels – Effectively <strong>removes pigmented outer skin layers</strong> to reveal brighter skin.</li>
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Topical Brightening Creams – <strong>Reduces excess melanin production</strong> and brightens your complexion.</li>
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Microneedling with Serum – Improves skin tone and texture, <strong>giving you a radiant glow.</strong></li>
+                            <ul class="text-gray-600 text-left">
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Laser Treatment – <strong>Lightens dark spots</strong> and promotes a balanced, even skin tone.</span>
+                                </li>
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Chemical Peels – Effectively <strong>removes pigmented outer skin layers</strong> to reveal brighter skin.</span>
+                                </li>
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Topical Brightening Creams – <strong>Reduces excess melanin production</strong> and brightens your complexion.</span>
+                                </li>
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Microneedling with Serum – Improves skin tone and texture, <strong>giving you a radiant glow.</strong></span>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -230,11 +434,23 @@
                            <i data-lucide="chevron-down" class="accordion-toggle-icon w-6 h-6 theme-accent md:hidden flex-shrink-0 ml-4"></i>
                         </div>
                         <div class="accordion-content">
-                            <ul class="space-y-3 text-gray-600 text-left">
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Botox / Fillers – <strong>Smooths fine lines and restores lost volume</strong> for a youthful appearance.</li>
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Laser Rejuvenation – <strong>Stimulates natural collagen production</strong> to reduce wrinkles from within.</li>
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Chemical Peels – Improves skin texture and <strong>noticeably reduces fine lines.</strong></li>
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Microneedling – <strong>Boosts collagen formation</strong> for firmer, more youthful-looking skin.</li>
+                            <ul class="text-gray-600 text-left">
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Botox / Fillers – <strong>Smooths fine lines and restores lost volume</strong> for a youthful appearance.</span>
+                                </li>
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Laser Rejuvenation – <strong>Stimulates natural collagen production</strong> to reduce wrinkles from within.</span>
+                                </li>
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Chemical Peels – Improves skin texture and <strong>noticeably reduces fine lines.</strong></span>
+                                </li>
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Microneedling – <strong>Boosts collagen formation</strong> for firmer, more youthful-looking skin.</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -250,11 +466,23 @@
                            <i data-lucide="chevron-down" class="accordion-toggle-icon w-6 h-6 theme-accent md:hidden flex-shrink-0 ml-4"></i>
                         </div>
                         <div class="accordion-content">
-                            <ul class="space-y-3 text-gray-600 text-left">
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Hydrafacial – Provides deep cleansing and hydration, <strong>leaving your skin with a vibrant glow.</strong></li>
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Vitamin / Brightening Serums – Infuses the skin with nutrients to <strong>dramatically improve radiance.</strong></li>
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Chemical Peels – <strong>Removes dull, dead skin cells</strong> to unveil a fresh and even skin tone.</li>
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Microneedling – Significantly <strong>enhances your skin's natural texture and glow.</strong></li>
+                            <ul class="text-gray-600 text-left">
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Hydrafacial – Provides deep cleansing and hydration, <strong>leaving your skin with a vibrant glow.</strong></span>
+                                </li>
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Vitamin / Brightening Serums – Infuses the skin with nutrients to <strong>dramatically improve radiance.</strong></span>
+                                </li>
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Chemical Peels – <strong>Removes dull, dead skin cells</strong> to unveil a fresh and even skin tone.</span>
+                                </li>
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Microneedling – Significantly <strong>enhances your skin's natural texture and glow.</strong></span>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -270,11 +498,23 @@
                            <i data-lucide="chevron-down" class="accordion-toggle-icon w-6 h-6 theme-accent md:hidden flex-shrink-0 ml-4"></i>
                         </div>
                         <div class="accordion-content">
-                            <ul class="space-y-3 text-gray-600 text-left">
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Laser Scar Removal – Visibly <strong>reduces the appearance of scars</strong> for smoother skin.</li>
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Microneedling – <strong>Smooths the skin's surface</strong> and promotes the body's natural healing process.</li>
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Chemical Peels – Gently <strong>helps fade surface-level scars</strong> and blemishes.</li>
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>PRP Therapy – Uses your body's own platelets to <strong>effectively regenerate skin and repair marks.</strong></li>
+                            <ul class="text-gray-600 text-left">
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Laser Scar Removal – Visibly <strong>reduces the appearance of scars</strong> for smoother skin.</span>
+                                </li>
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Microneedling – <strong>Smooths the skin's surface</strong> and promotes the body's natural healing process.</span>
+                                </li>
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Chemical Peels – Gently <strong>helps fade surface-level scars</strong> and blemishes.</span>
+                                </li>
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">PRP Therapy – Uses your body's own platelets to <strong>effectively regenerate skin and repair marks.</strong></span>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -302,11 +542,23 @@
                            <i data-lucide="chevron-down" class="accordion-toggle-icon w-6 h-6 text-stone-500 md:hidden flex-shrink-0 ml-4"></i>
                         </div>
                         <div class="accordion-content">
-                            <ul class="space-y-3 text-gray-600 text-left">
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>PRP Therapy – <strong>Stimulates natural hair growth</strong> using your own concentrated platelets.</li>
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Mesotherapy – Delivers nutrient-rich injections to <strong>nourish and strengthen hair roots.</strong></li>
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Topical Treatments / Serums – Clinically proven to <strong>reduce hair fall and improve hair density.</strong></li>
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Laser Hair Therapy – <strong>Stimulates dormant hair follicles</strong> into a growth phase.</li>
+                            <ul class="text-gray-600 text-left">
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">PRP Therapy – <strong>Stimulates natural hair growth</strong> using your own concentrated platelets.</span>
+                                </li>
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Mesotherapy – Delivers nutrient-rich injections to <strong>nourish and strengthen hair roots.</strong></span>
+                                </li>
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Topical Treatments / Serums – Clinically proven to <strong>reduce hair fall and improve hair density.</strong></span>
+                                </li>
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Laser Hair Therapy – <strong>Stimulates dormant hair follicles</strong> into a growth phase.</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -322,11 +574,23 @@
                            <i data-lucide="chevron-down" class="accordion-toggle-icon w-6 h-6 text-stone-500 md:hidden flex-shrink-0 ml-4"></i>
                         </div>
                         <div class="accordion-content">
-                            <ul class="space-y-3 text-gray-600 text-left">
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Medicated Shampoos – Formulated to <strong>reduce flakes and soothe scalp irritation.</strong></li>
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Scalp Treatments / Serums – <strong>Deeply nourishes the scalp</strong> and provides lasting relief from itching.</li>
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Laser / Light Therapy – Effectively <strong>reduces scalp inflammation</strong> and promotes a healthy environment.</li>
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Oil Therapy / Massage – <strong>Improves overall scalp health</strong> and circulation naturally.</li>
+                            <ul class="text-gray-600 text-left">
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Medicated Shampoos – Formulated to <strong>reduce flakes and soothe scalp irritation.</strong></span>
+                                </li>
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Scalp Treatments / Serums – <strong>Deeply nourishes the scalp</strong> and provides lasting relief from itching.</span>
+                                </li>
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Laser / Light Therapy – Effectively <strong>reduces scalp inflammation</strong> and promotes a healthy environment.</span>
+                                </li>
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Oil Therapy / Massage – <strong>Improves overall scalp health</strong> and circulation naturally.</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -342,10 +606,19 @@
                            <i data-lucide="chevron-down" class="accordion-toggle-icon w-6 h-6 text-stone-500 md:hidden flex-shrink-0 ml-4"></i>
                         </div>
                         <div class="accordion-content">
-                            <ul class="space-y-3 text-gray-600 text-left">
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Hair Spa / Deep Conditioning – <strong>Restores essential moisture and softness</strong> to dry hair.</li>
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Keratin / Protein Treatment – <strong>Strengthens the hair shaft</strong> and creates a smooth, frizz-free finish.</li>
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Oiling / Scalp Nourishment – <strong>Deeply hydrates the scalp</strong> and improves the health of your hair.</li>
+                            <ul class="text-gray-600 text-left">
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Hair Spa / Deep Conditioning – <strong>Restores essential moisture and softness</strong> to dry hair.</span>
+                                </li>
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Keratin / Protein Treatment – <strong>Strengthens the hair shaft</strong> and creates a smooth, frizz-free finish.</span>
+                                </li>
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Oiling / Scalp Nourishment – <strong>Deeply hydrates the scalp</strong> and improves the health of your hair.</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -361,10 +634,19 @@
                            <i data-lucide="chevron-down" class="accordion-toggle-icon w-6 h-6 text-stone-500 md:hidden flex-shrink-0 ml-4"></i>
                         </div>
                         <div class="accordion-content">
-                            <ul class="space-y-3 text-gray-600 text-left">
-                               <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Hair Pigmentation / Coloring – Provides safe methods to <strong>beautifully cover gray hair.</strong></li>
-                               <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Nutritional Therapy – Offers targeted supplements to <strong>help delay the graying process.</strong></li>
-                               <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Topical Treatments – Specialized formulas that may <strong>slow down the loss of hair pigment.</strong></li>
+                            <ul class="text-gray-600 text-left">
+                               <li class="service-list-item">
+                                   <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                   <span class="content">Hair Pigmentation / Coloring – Provides safe methods to <strong>beautifully cover gray hair.</strong></span>
+                               </li>
+                               <li class="service-list-item">
+                                   <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                   <span class="content">Nutritional Therapy – Offers targeted supplements to <strong>help delay the graying process.</strong></span>
+                               </li>
+                               <li class="service-list-item">
+                                   <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                   <span class="content">Topical Treatments – Specialized formulas that may <strong>slow down the loss of hair pigment.</strong></span>
+                               </li>
                             </ul>
                         </div>
                     </div>
@@ -392,10 +674,19 @@
                            <i data-lucide="chevron-down" class="accordion-toggle-icon w-6 h-6 theme-accent md:hidden flex-shrink-0 ml-4"></i>
                         </div>
                         <div class="accordion-content">
-                            <ul class="space-y-3 text-gray-600 text-left">
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Microneedling – <strong>Improves skin texture</strong> and visibly reduces the appearance of stretch marks.</li>
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Laser Therapy – <strong>Stimulates new collagen growth</strong> to effectively fade marks.</li>
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Topical Treatments / Creams – Aids in skin regeneration to <strong>improve the look of stretch marks.</strong></li>
+                            <ul class="text-gray-600 text-left">
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Microneedling – <strong>Improves skin texture</strong> and visibly reduces the appearance of stretch marks.</span>
+                                </li>
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Laser Therapy – <strong>Stimulates new collagen growth</strong> to effectively fade marks.</span>
+                                </li>
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Topical Treatments / Creams – Aids in skin regeneration to <strong>improve the look of stretch marks.</strong></span>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -411,9 +702,15 @@
                            <i data-lucide="chevron-down" class="accordion-toggle-icon w-6 h-6 theme-accent md:hidden flex-shrink-0 ml-4"></i>
                         </div>
                         <div class="accordion-content">
-                            <ul class="space-y-3 text-gray-600 text-left">
-                               <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Radiofrequency Therapy – Non-invasively <strong>tightens skin and shapes body areas</strong> for a toned look.</li>
-                               <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Ultrasound Therapy – A non-surgical method for <strong>effective body shaping.</strong></li>
+                            <ul class="text-gray-600 text-left">
+                               <li class="service-list-item">
+                                   <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                   <span class="content">Radiofrequency Therapy – Non-invasively <strong>tightens skin and shapes body areas</strong> for a toned look.</span>
+                               </li>
+                               <li class="service-list-item">
+                                   <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                   <span class="content">Ultrasound Therapy – A non-surgical method for <strong>effective body shaping.</strong></span>
+                               </li>
                             </ul>
                         </div>
                     </div>
@@ -429,10 +726,19 @@
                            <i data-lucide="chevron-down" class="accordion-toggle-icon w-6 h-6 theme-accent md:hidden flex-shrink-0 ml-4"></i>
                         </div>
                         <div class="accordion-content">
-                            <ul class="space-y-3 text-gray-600 text-left">
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Radiofrequency Therapy – <strong>Stimulates deep collagen production</strong> for naturally firmer skin.</li>
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Ultrasound / HIFU – Provides <strong>non-invasive lifting and tightening</strong> for a more youthful contour.</li>
-                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Chemical Peels – <strong>Improves overall skin texture and elasticity.</strong></li>
+                            <ul class="text-gray-600 text-left">
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Radiofrequency Therapy – <strong>Stimulates deep collagen production</strong> for naturally firmer skin.</span>
+                                </li>
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Ultrasound / HIFU – Provides <strong>non-invasive lifting and tightening</strong> for a more youthful contour.</span>
+                                </li>
+                                <li class="service-list-item">
+                                    <i data-lucide="check-circle" class="w-5 h-5 theme-accent icon"></i>
+                                    <span class="content">Chemical Peels – <strong>Improves overall skin texture and elasticity.</strong></span>
+                                </li>
                             </ul>
                         </div>
                     </div>

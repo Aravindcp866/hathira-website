@@ -1,176 +1,119 @@
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hathira Clinic | Skin, Hair & Body Treatments</title>
-    
-    <!-- SEO & Social Sharing Tags -->
-    <meta name="description" content="Hathira Clinic offers expert cosmetic treatments for skin, hair, and body. Rediscover your natural radiance with our advanced solutions.">
-    <meta property="og:title" content="Hathira Clinic | Advanced Cosmetic Treatments">
-    <meta property="og:description" content="Expert care for skin, hair, and body. Tailored treatments to enhance your unique beauty and help you rediscover your natural radiance.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=1200&h=630&fit=crop&auto=format">
-    <meta property="og:url" content="https://www.hathiraclinic.com">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hathira Clinic | Skin, Hair & Body Treatments</title>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* Custom styles for typography and color palette */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #FFFBF5; /* Soft cream background */
-            color: #4A4A4A; /* Dark gray for text */
-        }
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-        }
-        .theme-accent {
-            color: #D4A59A; /* Muted rose color */
-        }
-        .theme-bg-accent {
-            background-color: #D4A59A; /* Muted rose color */
-        }
-        .theme-bg-accent:hover {
-            background-color: #C39489; /* Darker rose on hover */
-        }
-        .gradient-text {
-            background: linear-gradient(90deg, #8c6b61, #C89F95);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .service-card {
-            background-color: #FFFFFF;
-            border: 1px solid #F0EAE6;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.07);
-        }
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease;
-        }
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
-        
-        .call-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 115px; /* Position next to WhatsApp icon */
-            background-color: #007BFF; /* Brighter, more visible blue */
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            box-shadow: 2px 2px 3px #999;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease;
-        }
-        .call-float:hover {
-            transform: scale(1.1);
-        }
+  <!-- SEO & Social Sharing -->
+  <meta name="description" content="Hathira Clinic offers expert cosmetic treatments for skin, hair, and body. Rediscover your natural radiance with our advanced solutions." />
+  <meta property="og:title" content="Hathira Clinic | Advanced Cosmetic Treatments" />
+  <meta property="og:description" content="Expert care for skin, hair, and body. Tailored treatments to enhance your unique beauty and help you rediscover your natural radiance." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=1200&h=630&fit=crop&auto=format" />
+  <meta property="og:url" content="https://www.hathiraclinic.com" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-        @keyframes pulse-green {
-            0%, 100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-            }
-            50% {
-                transform: scale(1.1);
-                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-            }
-        }
-         @keyframes pulse-blue {
-            0%, 100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7);
-            }
-            50% {
-                transform: scale(1.05);
-                box-shadow: 0 0 0 15px rgba(0, 123, 255, 0);
-            }
-        }
-        .whatsapp-float {
-            animation: pulse-green 2.5s infinite;
-        }
-        .call-float {
-            animation: pulse-blue 2.5s infinite;
-            animation-delay: 1.25s;
-        }
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-        /*-- Animations --*/
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .fade-in-section {
-            opacity: 0;
-            animation: fadeIn 0.8s ease-out forwards;
-        }
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 
-        /* Animated gradient for hero */
-        .hero-animated-bg {
-            background: linear-gradient(-45deg, #e1c0b5, #c39489, #8c6b61, #4a4a4a);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-        }
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #FFFBF5;
+      color: #4A4A4A;
+    }
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+    }
+    .theme-accent { color: #D4A59A; }
+    .theme-bg-accent { background-color: #D4A59A; }
+    .theme-bg-accent:hover { background-color: #C39489; }
+    .gradient-text {
+      background: linear-gradient(90deg, #8c6b61, #C89F95);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        /* Accordion Styles for Mobile */
-        .accordion-toggle-icon {
-            transition: transform 0.3s ease-out;
-        }
-        .accordion-toggle-icon.rotated {
-            transform: rotate(180deg);
-        }
+    /* ✅ FIX: Equal height service cards */
+    .service-card {
+      background-color: #FFFFFF;
+      border: 1px solid #F0EAE6;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.07);
+    }
 
-        @media (max-width: 767px) {
-            .accordion-content {
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.5s ease-in-out;
-            }
-            .accordion-content.expanded {
-                max-height: 500px; /* Adjust if content is taller */
-                margin-top: 1rem;
-            }
-        }
-        
-    </style>
+    /* Floating Buttons, Animation, and Accordion (unchanged) */
+    .whatsapp-float, .call-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 40px;
+      color: #FFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      box-shadow: 2px 2px 3px #999;
+      transition: transform 0.3s ease;
+    }
+    .whatsapp-float:hover, .call-float:hover { transform: scale(1.1); }
+    .whatsapp-float { background-color: #25d366; right: 40px; animation: pulse-green 2.5s infinite; }
+    .call-float { background-color: #007BFF; right: 115px; animation: pulse-blue 2.5s infinite; animation-delay: 1.25s; }
+
+    @keyframes pulse-green {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      50% { transform: scale(1.1); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    }
+    @keyframes pulse-blue {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7); }
+      50% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(0, 123, 255, 0); }
+    }
+
+    /* Fade In Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in-section { opacity: 0; animation: fadeIn 0.8s ease-out forwards; }
+
+    /* Hero Gradient Animation */
+    .hero-animated-bg {
+      background: linear-gradient(-45deg, #e1c0b5, #c39489, #8c6b61, #4a4a4a);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Accordion (unchanged) */
+    @media (max-width: 767px) {
+      .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-in-out; }
+      .accordion-content.expanded { max-height: 500px; margin-top: 1rem; }
+    }
+  </style>
 </head>
+
+<body class="antialiased">
 <body class="antialiased">
 
     <!-- Header -->
@@ -248,10 +191,10 @@
                         </div>
                         <div class="accordion-content">
                             <ul class="space-y-3 text-gray-600 text-left">
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Chemical Peels – Reveals clearer skin by <strong>removing dead cells and unclogging pores.</strong></li>
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Laser Therapy – <strong>Kills acne-causing bacteria</strong> and calms inflammation for healthier skin.</li>
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Topical Treatments – Customized creams and lotions to <strong>prevent and treat breakouts effectively.</strong></li>
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Microdermabrasion – <strong>Gently exfoliates dead skin</strong> and diminishes the appearance of acne scars.</li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Chemical Peels – Reveals clearer skin by <strong>removing dead cells and unclogging pores.</strong></li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Laser Therapy – <strong>Kills acne-causing bacteria</strong> and calms inflammation for healthier skin.</li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Topical Treatments – Customized creams and lotions to <strong>prevent and treat breakouts effectively.</strong></li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Microdermabrasion – <strong>Gently exfoliates dead skin</strong> and diminishes the appearance of acne scars.</li>
                             </ul>
                         </div>
                     </div>
@@ -268,10 +211,10 @@
                         </div>
                          <div class="accordion-content">
                             <ul class="space-y-3 text-gray-600 text-left">
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Laser Treatment – <strong>Lightens dark spots</strong> and promotes a balanced, even skin tone.</li>
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Chemical Peels – Effectively <strong>removes pigmented outer skin layers</strong> to reveal brighter skin.</li>
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Topical Brightening Creams – <strong>Reduces excess melanin production</strong> and brightens your complexion.</li>
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Microneedling with Serum – Improves skin tone and texture, <strong>giving you a radiant glow.</strong></li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Laser Treatment – <strong>Lightens dark spots</strong> and promotes a balanced, even skin tone.</li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Chemical Peels – Effectively <strong>removes pigmented outer skin layers</strong> to reveal brighter skin.</li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Topical Brightening Creams – <strong>Reduces excess melanin production</strong> and brightens your complexion.</li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Microneedling with Serum – Improves skin tone and texture, <strong>giving you a radiant glow.</strong></li>
                             </ul>
                         </div>
                     </div>
@@ -288,10 +231,10 @@
                         </div>
                         <div class="accordion-content">
                             <ul class="space-y-3 text-gray-600 text-left">
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Botox / Fillers – <strong>Smooths fine lines and restores lost volume</strong> for a youthful appearance.</li>
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Laser Rejuvenation – <strong>Stimulates natural collagen production</strong> to reduce wrinkles from within.</li>
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Chemical Peels – Improves skin texture and <strong>noticeably reduces fine lines.</strong></li>
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Microneedling – <strong>Boosts collagen formation</strong> for firmer, more youthful-looking skin.</li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Botox / Fillers – <strong>Smooths fine lines and restores lost volume</strong> for a youthful appearance.</li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Laser Rejuvenation – <strong>Stimulates natural collagen production</strong> to reduce wrinkles from within.</li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Chemical Peels – Improves skin texture and <strong>noticeably reduces fine lines.</strong></li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Microneedling – <strong>Boosts collagen formation</strong> for firmer, more youthful-looking skin.</li>
                             </ul>
                         </div>
                     </div>
@@ -308,10 +251,10 @@
                         </div>
                         <div class="accordion-content">
                             <ul class="space-y-3 text-gray-600 text-left">
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Hydrafacial – Provides deep cleansing and hydration, <strong>leaving your skin with a vibrant glow.</strong></li>
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Vitamin / Brightening Serums – Infuses the skin with nutrients to <strong>dramatically improve radiance.</strong></li>
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Chemical Peels – <strong>Removes dull, dead skin cells</strong> to unveil a fresh and even skin tone.</li>
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Microneedling – Significantly <strong>enhances your skin's natural texture and glow.</strong></li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Hydrafacial – Provides deep cleansing and hydration, <strong>leaving your skin with a vibrant glow.</strong></li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Vitamin / Brightening Serums – Infuses the skin with nutrients to <strong>dramatically improve radiance.</strong></li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Chemical Peels – <strong>Removes dull, dead skin cells</strong> to unveil a fresh and even skin tone.</li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Microneedling – Significantly <strong>enhances your skin's natural texture and glow.</strong></li>
                             </ul>
                         </div>
                     </div>
@@ -328,10 +271,10 @@
                         </div>
                         <div class="accordion-content">
                             <ul class="space-y-3 text-gray-600 text-left">
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Laser Scar Removal – Visibly <strong>reduces the appearance of scars</strong> for smoother skin.</li>
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Microneedling – <strong>Smooths the skin's surface</strong> and promotes the body's natural healing process.</li>
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Chemical Peels – Gently <strong>helps fade surface-level scars</strong> and blemishes.</li>
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>PRP Therapy – Uses your body's own platelets to <strong>effectively regenerate skin and repair marks.</strong></li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Laser Scar Removal – Visibly <strong>reduces the appearance of scars</strong> for smoother skin.</li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Microneedling – <strong>Smooths the skin's surface</strong> and promotes the body's natural healing process.</li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Chemical Peels – Gently <strong>helps fade surface-level scars</strong> and blemishes.</li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>PRP Therapy – Uses your body's own platelets to <strong>effectively regenerate skin and repair marks.</strong></li>
                             </ul>
                         </div>
                     </div>
@@ -360,10 +303,10 @@
                         </div>
                         <div class="accordion-content">
                             <ul class="space-y-3 text-gray-600 text-left">
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>PRP Therapy – <strong>Stimulates natural hair growth</strong> using your own concentrated platelets.</li>
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Mesotherapy – Delivers nutrient-rich injections to <strong>nourish and strengthen hair roots.</strong></li>
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Topical Treatments / Serums – Clinically proven to <strong>reduce hair fall and improve hair density.</strong></li>
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Laser Hair Therapy – <strong>Stimulates dormant hair follicles</strong> into a growth phase.</li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>PRP Therapy – <strong>Stimulates natural hair growth</strong> using your own concentrated platelets.</li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Mesotherapy – Delivers nutrient-rich injections to <strong>nourish and strengthen hair roots.</strong></li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Topical Treatments / Serums – Clinically proven to <strong>reduce hair fall and improve hair density.</strong></li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Laser Hair Therapy – <strong>Stimulates dormant hair follicles</strong> into a growth phase.</li>
                             </ul>
                         </div>
                     </div>
@@ -380,10 +323,10 @@
                         </div>
                         <div class="accordion-content">
                             <ul class="space-y-3 text-gray-600 text-left">
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Medicated Shampoos – Formulated to <strong>reduce flakes and soothe scalp irritation.</strong></li>
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Scalp Treatments / Serums – <strong>Deeply nourishes the scalp</strong> and provides lasting relief from itching.</li>
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Laser / Light Therapy – Effectively <strong>reduces scalp inflammation</strong> and promotes a healthy environment.</li>
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Oil Therapy / Massage – <strong>Improves overall scalp health</strong> and circulation naturally.</li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Medicated Shampoos – Formulated to <strong>reduce flakes and soothe scalp irritation.</strong></li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Scalp Treatments / Serums – <strong>Deeply nourishes the scalp</strong> and provides lasting relief from itching.</li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Laser / Light Therapy – Effectively <strong>reduces scalp inflammation</strong> and promotes a healthy environment.</li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Oil Therapy / Massage – <strong>Improves overall scalp health</strong> and circulation naturally.</li>
                             </ul>
                         </div>
                     </div>
@@ -400,9 +343,9 @@
                         </div>
                         <div class="accordion-content">
                             <ul class="space-y-3 text-gray-600 text-left">
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Hair Spa / Deep Conditioning – <strong>Restores essential moisture and softness</strong> to dry hair.</li>
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Keratin / Protein Treatment – <strong>Strengthens the hair shaft</strong> and creates a smooth, frizz-free finish.</li>
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Oiling / Scalp Nourishment – <strong>Deeply hydrates the scalp</strong> and improves the health of your hair.</li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Hair Spa / Deep Conditioning – <strong>Restores essential moisture and softness</strong> to dry hair.</li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Keratin / Protein Treatment – <strong>Strengthens the hair shaft</strong> and creates a smooth, frizz-free finish.</li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Oiling / Scalp Nourishment – <strong>Deeply hydrates the scalp</strong> and improves the health of your hair.</li>
                             </ul>
                         </div>
                     </div>
@@ -419,9 +362,9 @@
                         </div>
                         <div class="accordion-content">
                             <ul class="space-y-3 text-gray-600 text-left">
-                               <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Hair Pigmentation / Coloring – Provides safe methods to <strong>beautifully cover gray hair.</strong></li>
-                               <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Nutritional Therapy – Offers targeted supplements to <strong>help delay the graying process.</strong></li>
-                               <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Topical Treatments – Specialized formulas that may <strong>slow down the loss of hair pigment.</strong></li>
+                               <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Hair Pigmentation / Coloring – Provides safe methods to <strong>beautifully cover gray hair.</strong></li>
+                               <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Nutritional Therapy – Offers targeted supplements to <strong>help delay the graying process.</strong></li>
+                               <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Topical Treatments – Specialized formulas that may <strong>slow down the loss of hair pigment.</strong></li>
                             </ul>
                         </div>
                     </div>
@@ -450,9 +393,9 @@
                         </div>
                         <div class="accordion-content">
                             <ul class="space-y-3 text-gray-600 text-left">
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Microneedling – <strong>Improves skin texture</strong> and visibly reduces the appearance of stretch marks.</li>
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Laser Therapy – <strong>Stimulates new collagen growth</strong> to effectively fade marks.</li>
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Topical Treatments / Creams – Aids in skin regeneration to <strong>improve the look of stretch marks.</strong></li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Microneedling – <strong>Improves skin texture</strong> and visibly reduces the appearance of stretch marks.</li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Laser Therapy – <strong>Stimulates new collagen growth</strong> to effectively fade marks.</li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Topical Treatments / Creams – Aids in skin regeneration to <strong>improve the look of stretch marks.</strong></li>
                             </ul>
                         </div>
                     </div>
@@ -469,8 +412,8 @@
                         </div>
                         <div class="accordion-content">
                             <ul class="space-y-3 text-gray-600 text-left">
-                               <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Radiofrequency Therapy – Non-invasively <strong>tightens skin and shapes body areas</strong> for a toned look.</li>
-                               <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Ultrasound Therapy – A non-surgical method for <strong>effective body shaping.</strong></li>
+                               <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Radiofrequency Therapy – Non-invasively <strong>tightens skin and shapes body areas</strong> for a toned look.</li>
+                               <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Ultrasound Therapy – A non-surgical method for <strong>effective body shaping.</strong></li>
                             </ul>
                         </div>
                     </div>
@@ -487,9 +430,9 @@
                         </div>
                         <div class="accordion-content">
                             <ul class="space-y-3 text-gray-600 text-left">
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Radiofrequency Therapy – <strong>Stimulates deep collagen production</strong> for naturally firmer skin.</li>
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Ultrasound / HIFU – Provides <strong>non-invasive lifting and tightening</strong> for a more youthful contour.</li>
-                                <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Chemical Peels – <strong>Improves overall skin texture and elasticity.</strong></li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Radiofrequency Therapy – <strong>Stimulates deep collagen production</strong> for naturally firmer skin.</li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Ultrasound / HIFU – Provides <strong>non-invasive lifting and tightening</strong> for a more youthful contour.</li>
+                                <li class="flex items-start flex-col"><i data-lucide="check-circle" class="w-5 h-5 theme-accent mr-3 mt-1 flex-shrink-0"></i>Chemical Peels – <strong>Improves overall skin texture and elasticity.</strong></li>
                             </ul>
                         </div>
                     </div>
@@ -539,7 +482,7 @@
 
     <!-- Floating Call button -->
     <a href="tel:+918075870652" class="call-float" aria-label="Call Us">
-        <i data-lucide="phone-call" class="w-7 h-7"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path><path d="M14.05 2a9 9 0 0 1 8 7.94"></path><path d="M14.05 6A5 5 0 0 1 18 10"></path></svg>
     </a>
 
     <!-- Floating WhatsApp button -->
@@ -552,56 +495,62 @@
 
     <!-- Main Site Script -->
     <script>
-        // This script runs after the entire HTML document is parsed.
-        
-        // 1. Initialize Lucide Icons
-        lucide.createIcons();
+        document.addEventListener('DOMContentLoaded', function() {
+            // This script runs only after the entire HTML document is fully loaded and parsed.
+            
+            // 1. Initialize Lucide Icons
+            try {
+                lucide.createIcons();
+            } catch (e) {
+                console.error("Lucide icons could not be created.", e);
+            }
 
-        // 2. Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+            // 2. Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
 
-        if(mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
+            if(mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
 
-        // 3. Mobile Accordion functionality
-        document.querySelectorAll('.accordion-header').forEach(header => {
-            header.addEventListener('click', () => {
-                // Only run accordion logic on mobile screens
-                if (window.innerWidth < 768) {
-                    const content = header.nextElementSibling;
-                    const icon = header.querySelector('.accordion-toggle-icon');
-                    
-                    if(content.classList.contains('expanded')) {
-                        content.classList.remove('expanded');
-                        icon.classList.remove('rotated');
-                    } else {
-                        content.classList.add('expanded');
-                        icon.classList.add('rotated');
+            // 3. Mobile Accordion functionality
+            document.querySelectorAll('.accordion-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    // Only run accordion logic on mobile screens
+                    if (window.innerWidth < 768) {
+                        const content = header.nextElementSibling;
+                        const icon = header.querySelector('.accordion-toggle-icon');
+                        
+                        if (content && icon) {
+                            content.classList.toggle('expanded');
+                            icon.classList.toggle('rotated');
+                        }
                     }
-                }
+                });
             });
-        });
 
-        // 4. Scroll animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-section');
-                }
+            // 4. Scroll animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in-section');
+                        // Optional: Unobserve after animation to save resources
+                        // observer.unobserve(entry.target); 
+                    }
+                });
+            }, {
+                threshold: 0.1
             });
-        }, {
-            threshold: 0.1
-        });
 
-        document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = '0'; // reset initial state for animation
-            observer.observe(section);
+            document.querySelectorAll('section').forEach(section => {
+                section.style.opacity = '0'; // reset initial state for animation
+                observer.observe(section);
+            });
         });
     </script>
 </body>
-</html>
 
+</body>
+</html>

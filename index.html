@@ -94,6 +94,35 @@
       box-shadow: 0 10px 20px rgba(0,0,0,0.07);
     }
 
+    /* Contact & Map Card Hover Effects - Matching Service Cards */
+    .contact-card {
+      background-color: #FFFFFF;
+      border: 1px solid #F0EAE6;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .contact-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.07);
+    }
+
+    .map-card {
+      background-color: #FFFFFF;
+      border: 1px solid #F0EAE6;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .map-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.07);
+    }
+
     /* ✅ FIX: Better list item alignment */
     .service-list-item {
       display: flex;
@@ -745,6 +774,92 @@
                 </div>
             </div>
         </section>
+
+        <!-- Contact & Location Section -->
+        <section class="py-20 md:py-28 fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold gradient-text">Visit Our Clinic</h2>
+                    <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">Find us at our convenient location and experience our expert care in person.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-9 items-start">
+                    <!-- Contact Information -->
+                    <div class="contact-card rounded-2xl md:p-8 p-6 shadow-lg">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-8">Get In Touch</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="flex-shrink-0 w-12 h-12 bg-rose-100/50 rounded-full flex items-center justify-center">
+                                    <i data-lucide="phone" class="w-6 h-6 theme-accent"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-1">Phone</h4>
+                                    <a href="tel:+918075870652" class="text-gray-600 hover:text-rose-400 transition-colors text-lg">+91 8075 870 652</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="flex-shrink-0 w-12 h-12 bg-rose-100/50 rounded-full flex items-center justify-center">
+                                    <i data-lucide="mail" class="w-6 h-6 theme-accent"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-1">Email</h4>
+                                    <a href="mailto:info@hathiraclinic.com" class="text-gray-600 hover:text-rose-400 transition-colors text-lg">info@hathiraclinic.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-12 h-12 bg-rose-100/50 rounded-full flex items-center justify-center mt-1">
+                                    <i data-lucide="map-pin" class="w-6 h-6 theme-accent"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-1">Address</h4>
+                                    <p class="text-gray-600 text-lg leading-relaxed">Near KSRTC Bus Stand, Kollam, Kerala, India</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-12 h-12 bg-rose-100/50 rounded-full flex items-center justify-center mt-1">
+                                    <i data-lucide="clock" class="w-6 h-6 theme-accent"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-1">Hours</h4>
+                                    <p class="text-gray-600 text-lg leading-relaxed">Mon - Sat: 9:00 AM - 7:00 PM<br>Sunday: 10:00 AM - 5:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                            <a href="https://wa.me/918075870652?text=Hello%20Hathira%20Clinic,%20I'd%20like%20to%20book%20an%20appointment." target="_blank" class="theme-bg-accent text-white font-semibold px-8 py-4 rounded-full shadow-md hover:shadow-lg transition-all text-center flex-1">
+                                Book Appointment
+                            </a>
+                            <a href="tel:+918075870652" class="bg-white border-2 border-rose-300 text-rose-600 font-semibold px-8 py-4 rounded-full shadow-md hover:bg-rose-50 transition-all text-center flex-1">
+                                Call Now
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Google Maps Embed -->
+                    <div class="map-card rounded-2xl p-8 shadow-lg">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Find Us</h3>
+                        <div class="relative w-full h-96 rounded-xl overflow-hidden shadow-md">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m21!1m12!1m3!1d16453.093332093034!2d76.94454869948635!3d8.526968165857365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m6!3e0!4m0!4m3!3m2!1d8.5309806!2d76.96127779999999!5e0!3m2!1sen!2sin!4v1760084176967!5m2!1sen!2sin" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade"
+                                class="rounded-lg">
+                            </iframe>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-4 text-center">Click on the map to open in Google Maps</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
@@ -774,7 +889,7 @@
                 <div>
                     <h3 class="text-xl font-semibold mb-4">Follow Us</h3>
                     <div class="flex justify-center md:justify-start space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="instagram" class="w-6 h-6"></i></a>
+                        <a href="https://www.instagram.com/hathiraskincareclinic" class="text-gray-400 hover:text-white"><i data-lucide="instagram" class="w-6 h-6"></i></a>
                         <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="facebook" class="w-6 h-6"></i></a>
                         <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="twitter" class="w-6 h-6"></i></a>
                     </div>

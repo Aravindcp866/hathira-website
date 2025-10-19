@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Geist } from 'next/font/google'
 import './globals.css'
+import { LenisProvider } from '@/contexts/LenisContext'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -102,7 +103,9 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#D4A59A" />
       </head>
       <body className={`${inter.variable} ${geist.variable} antialiased`}>
-        {children}
+        <LenisProvider>
+          {children}
+        </LenisProvider>
       </body>
     </html>
   )

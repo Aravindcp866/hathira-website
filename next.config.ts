@@ -1,8 +1,30 @@
 import type { NextConfig } from "next";
-import { createNextConfig } from 'next-sanity/next'
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  reactStrictMode: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+        port: '',
+        pathname: '/images/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
+  experimental: {
+    optimizePackageImports: ['@studio-freight/lenis'],
+  },
+  // Ensure proper production build configuration
+  productionBrowserSourceMaps: false,
+  compress: true,
+  poweredByHeader: false,
 };
 
-export default createNextConfig(nextConfig);
+export default nextConfig;

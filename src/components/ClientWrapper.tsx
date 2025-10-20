@@ -1,8 +1,12 @@
 'use client'
 
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 
-export default function ClientWrapper({ children }: { children: React.ReactNode }) {
+interface ClientWrapperProps {
+  children?: React.ReactNode
+}
+
+export default function ClientWrapper({ children }: ClientWrapperProps) {
   useEffect(() => {
     // Scroll animations
     const observer = new IntersectionObserver(

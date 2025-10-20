@@ -1,12 +1,18 @@
 import { groq } from 'next-sanity'
 
 export const HERO_QUERY = groq`
-  *[_type == "hero"][0] {
+  *[_type == "hero" && title == "Hathira Clinic"][0] {
     title,
     subtitle,
     ctaText,
     backgroundImage,
-    gradientColors
+    gradientColors,
+    carouselImages[] {
+      image,
+      text,
+      ctaLink,
+      ctaText
+    }
   }
 `
 

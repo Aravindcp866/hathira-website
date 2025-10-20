@@ -33,10 +33,18 @@ export interface ContactInfo {
   mapEmbed?: string
 }
 
+export interface CarouselSlide {
+  image: string
+  text: string
+  ctaLink?: string
+  ctaText?: string
+}
+
 export interface HeroData {
   title: string
   subtitle: string
   ctaText: string
   backgroundImage?: string
   gradientColors?: string[]
+  carouselImages?: CarouselSlide[]
 }

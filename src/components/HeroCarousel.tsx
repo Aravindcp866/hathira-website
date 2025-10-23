@@ -23,7 +23,7 @@ export default function HeroCarousel({ slides, gradientColors = ['#e1c0b5', '#c3
 
 
   return (
-    <section className="relative h-[80vh] min-h-[500px] overflow-hidden">
+    <section className="relative h-[80vh] min-h-[800px] overflow-hidden">
       <Splide
         options={{
           type: 'loop',
@@ -33,7 +33,7 @@ export default function HeroCarousel({ slides, gradientColors = ['#e1c0b5', '#c3
           pauseOnFocus: true,
           resetProgress: false,
           speed: 1000,
-          arrows: true,
+          arrows: false, // hide prev/next arrows
           pagination: true,
           drag: true,
           keyboard: true,
@@ -71,11 +71,12 @@ export default function HeroCarousel({ slides, gradientColors = ['#e1c0b5', '#c3
               />
 
               <motion.div
-                className="relative z-20 max-w-3xl mx-auto h-full flex flex-col items-center justify-center text-white text-center px-6"
+                className="absolute inset-0 z-20 w-full h-full flex flex-col items-center justify-center text-white text-center px-6"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: 'easeOut' }}
               >
+                <div className="max-w-3xl mx-auto">
                 <h1 
                   className="text-4xl md:text-6xl font-extrabold leading-tight mb-4 tracking-wide text-shadow-lg"
                 >
@@ -94,6 +95,7 @@ export default function HeroCarousel({ slides, gradientColors = ['#e1c0b5', '#c3
                     {slide.ctaText || ctaText}
                   </a>
                 ) : null}
+                </div>
               </motion.div>
             </SplideSlide>
           )

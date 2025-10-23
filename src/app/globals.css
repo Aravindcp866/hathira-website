@@ -9,6 +9,8 @@
     font-family: 'Inter', sans-serif;
     background-color: #FFFBF5;
     color: #4A4A4A;
+    overscroll-behavior: none;
+    -webkit-overflow-scrolling: touch;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -285,8 +287,14 @@
 }
 
 /* Carousel Custom Styles */
+.splide {
+  position: relative;
+  z-index: 15; /* ensure pagination can layer above slide overlays */
+}
 .splide__pagination {
   bottom: 2rem;
+  position: absolute;
+  z-index: 30; /* above the dark overlay (z-10) */
 }
 
 .splide__pagination__page {

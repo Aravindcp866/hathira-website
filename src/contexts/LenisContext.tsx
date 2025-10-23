@@ -27,19 +27,22 @@ export function LenisProvider({ children }: LenisProviderProps) {
   useEffect(() => {
     // Initialize Lenis for smooth scrolling
     const lenisInstance = new Lenis({
-      duration: 1.0,
+      duration: 1.2, // slightly smoother
       easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      touchMultiplier: 1.5,
+      touchMultiplier: 1.2,
       infinite: false,
-      wheelMultiplier: 0.8,
-      lerp: 0.15,
+      wheelMultiplier: 1.0,
+      lerp: 0.1,
       syncTouch: true,
       syncTouchLerp: 0.1
     })
 
     lenisRef.current = lenisInstance
     setLenis(lenisInstance)
+
+    // Mark html for Lenis styling and RAF loop
+    document.documentElement.classList.add('lenis', 'lenis-smooth')
 
     // RAF loop
     function raf(time: number) {
@@ -52,6 +55,7 @@ export function LenisProvider({ children }: LenisProviderProps) {
     // Cleanup
     return () => {
       lenisInstance.destroy()
+      document.documentElement.classList.remove('lenis', 'lenis-smooth')
     }
   }, [])
 

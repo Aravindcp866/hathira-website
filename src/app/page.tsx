@@ -6,18 +6,19 @@ import ContactSection from '@/components/ContactSection'
 import Footer from '@/components/Footer'
 import FloatingButtons from '@/components/FloatingButtons'
 import ClientWrapper from '@/components/ClientWrapper'
-import { Service } from '@/types'
+import { Service, StackCardData } from '@/types'
 import { client, urlFor } from '../../lib/sanity'
-import { HERO_QUERY, SERVICES_QUERY, CONTACT_INFO_QUERY } from '../../lib/queries'
+import { HERO_QUERY, SERVICES_QUERY, CONTACT_INFO_QUERY, STACKCARD_QUERY } from '../../lib/queries'
 import StackableCard from '@/components/animated/StackableCard'
 
 // Fetch data from Sanity at build time
 async function getData() {
   try {
-    const [heroData, servicesData, contactData] = await Promise.all([
+    const [heroData, servicesData, contactData, stackCardData] = await Promise.all([
       client.fetch(HERO_QUERY),
       client.fetch(SERVICES_QUERY),
-      client.fetch(CONTACT_INFO_QUERY)
+      client.fetch(CONTACT_INFO_QUERY),
+      client.fetch(STACKCARD_QUERY)
     ])
 
 
@@ -44,6 +45,18 @@ async function getData() {
           facebook: '',
           twitter: ''
         }
+      } : null,
+      stackCardData: stackCardData ? {
+        ...stackCardData,
+        cards: stackCardData.cards && Array.isArray(stackCardData.cards) ? stackCardData.cards.map((card: any) => ({
+          ...card,
+          image: {
+            asset: {
+              _id: card.image.asset._id,
+              url: card.image.asset.url
+            }
+          }
+        })) : []
       } : null
     }
   } catch (error) {
@@ -52,14 +65,15 @@ async function getData() {
     return {
       heroData: null,
       servicesData: [],
-      contactData: null
+      contactData: null,
+      stackCardData: null
     }
   }
 }
 
 export default async function Home() {
   // Fetch data from Sanity at build time
-  const { heroData, servicesData, contactData } = await getData()
+  const { heroData, servicesData, contactData, stackCardData } = await getData()
   
 
   // Group services by category
@@ -117,7 +131,9 @@ export default async function Home() {
           </section>
         )}
 
-        <StackableCard />
+        {stackCardData && (
+          <StackableCard stackCardData={stackCardData} />
+        )}
 
         {/* Contact Section - only render if we have contact data */}
         {contactData && (

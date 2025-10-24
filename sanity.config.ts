@@ -29,6 +29,9 @@ export default defineConfig({
             S.listItem()
               .title('Contact Info')
               .child(S.document().schemaType('contactInfo').documentId('contactInfo')),
+            S.listItem()
+              .title('Stack Card Section')
+              .child(S.document().schemaType('stackcard').documentId('stackcard')),
           ]),
     }),
     visionTool(),

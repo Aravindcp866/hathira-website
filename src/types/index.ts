@@ -48,3 +48,24 @@ export interface HeroData {
   gradientColors?: string[]
   carouselImages?: CarouselSlide[]
 }
+
+export interface StackCardItem {
+  image: {
+    asset: {
+      _id: string
+      url: string
+    }
+  }
+  heading: string
+  description: string
+  listingItems: {
+    text: string
+  }[]
+}
+
+export interface StackCardData {
+  _id: string
+  title: string
+  description?: string
+  cards: StackCardItem[]
+}

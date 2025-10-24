@@ -63,3 +63,24 @@ export const CONTACT_INFO_QUERY = groq`
     mapEmbed
   }
 `
+
+export const STACKCARD_QUERY = groq`
+  *[_type == "stackcard"][0] {
+    _id,
+    title,
+    description,
+    cards[] {
+      image {
+        asset-> {
+          _id,
+          url
+        }
+      },
+      heading,
+      description,
+      listingItems[] {
+        text
+      }
+    }
+  }
+`

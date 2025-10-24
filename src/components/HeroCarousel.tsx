@@ -24,25 +24,59 @@ export default function HeroCarousel({ slides, gradientColors = ['#e1c0b5', '#c3
 
   return (
     <section className="relative h-[80vh] min-h-[800px] overflow-hidden">
-      <Splide
-        options={{
-          type: 'loop',
-          autoplay: true,
-          interval: 5000,
-          pauseOnHover: true,
-          pauseOnFocus: true,
-          resetProgress: false,
-          speed: 1000,
-          arrows: false, // hide prev/next arrows
-          pagination: true,
-          drag: true,
-          keyboard: true,
-          cover: true,
-          height: '100%',
-          width: '100%',
-        }}
-        className="h-full"
-      >
+      <style jsx global>{`
+        .hero-carousel-wrapper {
+          position: relative !important;
+          height: 100% !important;
+        }
+        .splide__pagination {
+          display: none !important;
+        }
+        .splide__arrow {
+          background: rgba(255, 255, 255, 0.9) !important;
+          border: none !important;
+          width: 50px !important;
+          height: 50px !important;
+          border-radius: 50% !important;
+          opacity: 0 !important;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+        }
+        .splide__arrow--prev {
+          left: 2rem !important;
+        }
+        .splide__arrow--next {
+          right: 2rem !important;
+        }
+        .splide:hover .splide__arrow {
+          opacity: 1 !important;
+        }
+        .splide__arrow svg {
+          width: 20px !important;
+          height: 20px !important;
+          fill: #333 !important;
+        }
+      `}</style>
+      <div className="hero-carousel-wrapper">
+        <Splide
+          options={{
+            type: 'loop',
+            autoplay: true,
+            interval: 5000,
+            pauseOnHover: true,
+            pauseOnFocus: true,
+            resetProgress: false,
+            speed: 1000,
+            arrows: true,
+            pagination: false,
+            drag: true,
+            keyboard: true,
+            cover: true,
+            height: '100%',
+            width: '100%',
+            focus: 'center',
+          }}
+          className="h-full"
+        >
         {slides.map((slide, index) => {
           const gradientStyle = {
             background: `linear-gradient(-45deg, ${gradientColors.join(', ')})`,
@@ -90,7 +124,7 @@ export default function HeroCarousel({ slides, gradientColors = ['#e1c0b5', '#c3
                 {(slide.ctaLink && slide.ctaText) || ctaText ? (
                   <a
                     href={slide.ctaLink || '#'}
-                    className="bg-white text-gray-800 font-bold px-8 py-3 rounded-full text-lg shadow-lg hover:bg-gray-100 transition-all transform hover:scale-105 inline-block"
+                    className="bg-white text-gray-800 font-bold px-8 py-3 rounded-full text-lg shadow-lg hover:bg-gray-100 transition-all inline-block"
                   >
                     {slide.ctaText || ctaText}
                   </a>
@@ -100,7 +134,8 @@ export default function HeroCarousel({ slides, gradientColors = ['#e1c0b5', '#c3
             </SplideSlide>
           )
         })}
-      </Splide>
+        </Splide>
+      </div>
     </section>
   )
 }

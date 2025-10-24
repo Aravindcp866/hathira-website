@@ -4,14 +4,23 @@ import React, { useEffect, useState } from 'react'
 import ScrollStack, { ScrollStackItem } from './ScrollStack'
 import { Splide, SplideSlide } from '@splidejs/react-splide'
 import '@splidejs/react-splide/css'
+import { StackCardData, StackCardItem } from '../../types'
+import Image from 'next/image'
 
 interface CardItem {
   title: string
   description: string
-  itemClassName: string
+  listingItems: string[]
+  image?: {
+    url: string
+  }
 }
 
-function StackableCard(): JSX.Element {
+interface StackableCardProps {
+  stackCardData: StackCardData
+}
+
+function StackableCard({ stackCardData }: StackableCardProps): JSX.Element {
   const [isMobile, setIsMobile] = useState<boolean>(false)
 
   useEffect(() => {
@@ -21,16 +30,39 @@ function StackableCard(): JSX.Element {
     return () => window.removeEventListener('resize', check)
   }, [])
 
-  const items: CardItem[] = [
-    { title: 'Card 1', description: 'This is the first card in the stack', itemClassName: 'bg-gradient-to-br from-rose-100 to-rose-200' },
-    { title: 'Card 2', description: 'This is the second card in the stack', itemClassName: 'bg-gradient-to-br from-blue-100 to-blue-200' },
-    { title: 'Card 3', description: 'This is the third card in the stack', itemClassName: 'bg-gradient-to-br from-green-100 to-green-200' },
-    { title: 'Card 4', description: 'This is the fourth card in the stack', itemClassName: 'bg-gradient-to-br from-purple-100 to-purple-200' },
-    { title: 'Card 5', description: 'This is the fifth card in the stack', itemClassName: 'bg-gradient-to-br from-orange-100 to-orange-200' },
-  ]
+  if (!stackCardData || !stackCardData.cards) {
+    return (
+      <div className="w-full text-center py-8">
+        <p className="text-gray-500">No stack card data available</p>
+      </div>
+    )
+  }
+
+  // Debug: Log the data structure
+  console.log('StackCard Data:', stackCardData)
+  console.log('Cards:', stackCardData.cards)
+
+  const items: CardItem[] = stackCardData.cards.map((card: StackCardItem) => ({
+    title: card.heading || '',
+    description: card.description || '',
+    listingItems: card.listingItems ? card.listingItems.map(item => item.text) : [],
+    image: {
+      url: card.image?.asset?.url || ''
+    }
+  }))
 
   return (
     <div className="w-full">
+      <style jsx global>{`
+        .splide__arrow {
+          transition: none !important;
+          transform: none !important;
+        }
+        .splide__arrow:hover {
+          transition: none !important;
+          transform: none !important;
+        }
+      `}</style>
       {isMobile ? (
         <div className="relative">
           <Splide
@@ -49,9 +81,34 @@ function StackableCard(): JSX.Element {
           >
             {items.map((item, idx) => (
               <SplideSlide key={idx}>
-                <div className={`scroll-stack-card relative w-full h-80 my-4 p-12 rounded-[40px] shadow-[0_0_30px_rgba(0,0,0,0.1)] box-border ${item.itemClassName}`}>
-                  <h2 className="text-3xl font-bold mb-4">{item.title}</h2>
-                  <p className="text-lg">{item.description}</p>
+                <div className="scroll-stack-card w-full max-w-4xl mx-auto min-h-80 my-4 p-6 md:p-8 rounded-[40px] shadow-[0_0_30px_rgba(0,0,0,0.1)] box-border bg-white flex flex-col md:flex-row items-center">
+                  {/* Left side - Image */}
+                  {item.image && item.image.url && (
+                    <div className="w-full md:w-72 h-48 md:h-64 rounded-[30px] overflow-hidden flex-shrink-0 mb-6 md:mb-0 md:mr-8">
+                      <Image
+                        src={item.image.url}
+                        alt={item.title}
+                        width={320}
+                        height={256}
+                        className="object-cover w-full h-full"
+                      />
+                    </div>
+                  )}
+                  {/* Right side - Text content */}
+                  <div className="flex-1">
+                    <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-800">{item.title}</h2>
+                    <p className="text-base md:text-lg text-gray-600 mb-4">{item.description}</p>
+                    {item.listingItems && item.listingItems.length > 0 && (
+                      <ul className="text-base md:text-lg text-gray-700 space-y-2">
+                        {item.listingItems.map((listItem, listIdx) => (
+                          <li key={listIdx} className="flex items-start">
+                            <span className="mr-2 text-blue-500">•</span>
+                            <span>{listItem}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
                 </div>
               </SplideSlide>
             ))}
@@ -63,12 +120,37 @@ function StackableCard(): JSX.Element {
           children={items.map((item, idx) => (
             <div key={`ssi-${idx}`}>
               <ScrollStackItem
-                itemClassName={item.itemClassName}
+                itemClassName="bg-white"
                 children={(
-                  <>
-                    <h2 className="text-3xl font-bold mb-4">{item.title}</h2>
-                    <p className="text-lg">{item.description}</p>
-                  </>
+                  <div className="flex items-center h-full">
+                    {/* Left side - Image */}
+                    {item.image && item.image.url && (
+                      <div className="w-72 h-64 rounded-[30px] overflow-hidden flex-shrink-0 mr-8">
+                        <Image
+                          src={item.image.url}
+                          alt={item.title}
+                          width={320}
+                          height={256}
+                          className="object-cover w-full h-full"
+                        />
+                      </div>
+                    )}
+                    {/* Right side - Text content */}
+                    <div className="flex-1">
+                      <h2 className="text-3xl font-bold mb-4 text-gray-800">{item.title}</h2>
+                      <p className="text-lg text-gray-600 mb-4">{item.description}</p>
+                      {item.listingItems && item.listingItems.length > 0 && (
+                        <ul className="text-lg text-gray-700 space-y-2">
+                          {item.listingItems.map((listItem, listIdx) => (
+                            <li key={listIdx} className="flex items-start">
+                              <span className="mr-2 text-blue-500">•</span>
+                              <span>{listItem}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  </div>
                 )}
               />
             </div>

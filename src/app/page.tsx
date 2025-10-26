@@ -59,7 +59,8 @@ async function getData() {
             }
           }
         })) : []
-      } : null
+      } : null,
+      faqData: faqData || null
     }
   } catch (error) {
     console.error('Error fetching data from Sanity:', error)
@@ -77,6 +78,9 @@ async function getData() {
 export default async function Home() {
   // Fetch data from Sanity at build time
   const { heroData, servicesData, contactData, stackCardData, faqData } = await getData()
+  
+  // Debug: Log FAQ data
+  console.log('FAQ data:', faqData)
   
 
   // Group services by category
@@ -107,7 +111,7 @@ export default async function Home() {
         {/* Skin Problems Section - only render if we have services data */}
         {servicesByCategory.skin && servicesByCategory.skin.length > 0 && (
           <section id="skin" className="py-20 md:py-28 fade-in-section">
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto px-6 py-12 ">
               <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-5xl font-bold gradient-text">
                   Advanced Skin Solutions
@@ -117,12 +121,45 @@ export default async function Home() {
                 </p>
               </div>
               <div className="grid grid-cols-1 md:flex md:flex-wrap md:items-stretch md:justify-center gap-6 md:gap-8">
-                {servicesByCategory.skin.map((service: Service) => (
+                {servicesByCategory.skin.map((service: Service, index: number) => (
                   <div key={service._id}>
                     <ServiceCard
                       title={service.title}
                       description={service.description}
                       icon={service.icon || 'sparkles'}
+                      image={service.image}
+                      category={service.category}
+                      treatments={service.treatments || []}
+                      featured={service.featured}
+                      isFirst={index === 0}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Section for hair and tatoo removal */}
+        {servicesByCategory.skin && servicesByCategory.skin.length > 0 && (
+          <section id="body" className="py-20 md:py-28 fade-in-section">
+            <div className="container mx-auto px-6 py-12 ">
+              <div className="text-center mb-16">
+                <h2 className="text-4xl md:text-5xl font-bold gradient-text">
+                Aesthetic / Beauty treatments
+                </h2>
+                <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
+                Non-medical services aimed at improving appearance or self-expression.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:flex md:flex-wrap md:items-stretch md:justify-center gap-6 md:gap-8">
+                {servicesByCategory.body.map((service: Service) => (
+                  <div key={service._id}>
+                    <ServiceCard
+                      title={service.title}
+                      description={service.description}
+                      icon={service.icon || 'sparkles'}
+                      image={service.image}
                       category={service.category}
                       treatments={service.treatments || []}
                       featured={service.featured}
@@ -139,7 +176,7 @@ export default async function Home() {
         )}
 
         {/* FAQ Section - only render if we have FAQ data */}
-        {faqData && faqData.faqs && faqData.faqs.length > 0 && (
+        {faqData && faqData.faqItems && faqData.faqItems.length > 0 && (
           <FAQ faqData={faqData} />
         )}
 

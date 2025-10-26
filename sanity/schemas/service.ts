@@ -34,6 +34,22 @@ export const service = defineType({
       description: 'Lucide icon name (e.g., sparkles, sun, activity)',
     }),
     defineField({
+      name: 'image',
+      title: 'Service Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'alt',
+          title: 'Alt Text',
+          type: 'string',
+          description: 'Important for SEO and accessibility',
+        },
+      ],
+    }),
+    defineField({
       name: 'category',
       title: 'Category',
       type: 'string',

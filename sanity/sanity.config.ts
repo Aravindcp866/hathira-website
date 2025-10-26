@@ -32,6 +32,9 @@ export default defineConfig({
             S.listItem()
               .title('Stack Card Section')
               .child(S.document().schemaType('stackcard').documentId('stackcard')),
+            S.listItem()
+            .title('Faq Section')
+            .child(S.document().schemaType('faqs').documentId('faqs')),
           ]),
     }),
     visionTool(),

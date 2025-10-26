@@ -10,6 +10,13 @@ export interface Service {
   slug: { current: string }
   description?: string
   icon: string
+  image?: {
+    asset: {
+      _id: string
+      url: string
+    }
+    alt?: string
+  }
   category: 'skin' | 'hair' | 'body'
   treatments: Treatment[]
   featured?: boolean
@@ -73,12 +80,11 @@ export interface StackCardData {
 export interface FAQItem {
   question: string
   answer: string
-  category: 'general' | 'skin' | 'hair' | 'body' | 'appointments' | 'pricing'
   featured: boolean
 }
 
 export interface FAQData {
   title: string
   subtitle?: string
-  faqs: FAQItem[]
+  faqItems: FAQItem[]
 }

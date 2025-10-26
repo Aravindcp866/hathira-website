@@ -444,7 +444,7 @@ export default async function Home() {
         {/* Skin Problems Section */}
         {servicesByCategory.skin && (
           <section id="skin" className="py-20 md:py-28 fade-in-section">
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto px-6 py-12 ">
               <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-5xl font-bold gradient-text">
                   Advanced Skin Solutions
@@ -473,7 +473,7 @@ export default async function Home() {
         {/* Hair Problems Section */}
         {servicesByCategory.hair && (
           <section id="hair" className="py-20 md:py-28 bg-white fade-in-section">
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto px-6 py-12 ">
               <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-5xl font-bold gradient-text">
                   Restorative Hair Care
@@ -502,7 +502,7 @@ export default async function Home() {
         {/* Body Problems Section */}
         {servicesByCategory.body && (
           <section id="body" className="py-20 md:py-28 fade-in-section">
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto px-6 py-12 ">
               <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-5xl font-bold gradient-text">
                   Body Perfecting Treatments

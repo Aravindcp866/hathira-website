@@ -201,9 +201,9 @@
     line-height: 1.4;
   }
   
-  section {
+  /* section {
     padding: 3rem 0;
-  }
+  } */
   
   .flex.flex-wrap {
     gap: 1rem;

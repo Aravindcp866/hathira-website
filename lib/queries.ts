@@ -23,6 +23,13 @@ export const SERVICES_QUERY = groq`
     slug,
     description,
     icon,
+    image {
+      asset-> {
+        _id,
+        url
+      },
+      alt
+    },
     category,
     featured,
     order,
@@ -86,13 +93,12 @@ export const STACKCARD_QUERY = groq`
 `
 
 export const FAQ_QUERY = groq`
-  *[_type == "faq"][0] {
+  *[_type == "faqs"][0] {
     title,
     subtitle,
-    faqs[] {
+    faqItems[] {
       question,
       answer,
-      category,
       featured
     }
   }

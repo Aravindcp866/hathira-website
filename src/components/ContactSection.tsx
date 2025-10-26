@@ -29,7 +29,7 @@ export default function ContactSection({ contactInfo }: ContactSectionProps) {
     <section className="py-20 md:py-28 fade-in-section">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text">
+          <h2 className="text-4xl md:text-5xl font-bold gradient-text py-12">
             Visit Our Clinic
           </h2>
           <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">

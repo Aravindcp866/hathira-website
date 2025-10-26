@@ -1,3 +1,4 @@
+
 'use client'
 
 import { useState } from 'react'
@@ -9,27 +10,9 @@ interface FAQProps {
   faqData: FAQData
 }
 
-const categoryColors = {
-  general: 'bg-blue-100 text-blue-800',
-  skin: 'bg-rose-100 text-rose-800',
-  hair: 'bg-amber-100 text-amber-800',
-  body: 'bg-green-100 text-green-800',
-  appointments: 'bg-purple-100 text-purple-800',
-  pricing: 'bg-orange-100 text-orange-800'
-}
-
-const categoryIcons = {
-  general: '❓',
-  skin: '✨',
-  hair: '💇',
-  body: '💪',
-  appointments: '📅',
-  pricing: '💰'
-}
 
 export default function FAQ({ faqData }: FAQProps) {
   const [openItems, setOpenItems] = useState<number[]>([])
-  const [selectedCategory, setSelectedCategory] = useState<string>('all')
 
   const toggleItem = (index: number) => {
     setOpenItems(prev => 
@@ -39,13 +22,7 @@ export default function FAQ({ faqData }: FAQProps) {
     )
   }
 
-  const categories = ['all', ...Array.from(new Set(faqData.faqs.map(faq => faq.category)))]
-  
-  const filteredFAQs = selectedCategory === 'all' 
-    ? faqData.faqs 
-    : faqData.faqs.filter(faq => faq.category === selectedCategory)
-
-  const featuredFAQs = faqData.faqs.filter(faq => faq.featured)
+  const featuredFAQs = faqData.faqItems.filter(faq => faq.featured)
 
   return (
     <section className="py-20 md:py-28 bg-gray-50">
@@ -53,7 +30,7 @@ export default function FAQ({ faqData }: FAQProps) {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-3 mb-4">
-            <HelpCircle className="w-8 h-8 text-primary-400" />
+            {/* <HelpCircle className="w-8 h-8 text-primary-400" /> */}
             <h2 className="text-4xl md:text-5xl font-bold gradient-text">
               {faqData.title}
             </h2>
@@ -65,30 +42,9 @@ export default function FAQ({ faqData }: FAQProps) {
           )}
         </div>
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                selectedCategory === category
-                  ? 'bg-primary-400 text-white shadow-lg'
-                  : 'bg-white text-gray-600 hover:bg-primary-50 hover:text-primary-400 border border-gray-200'
-              }`}
-            >
-              {category === 'all' ? 'All Questions' : (
-                <span className="flex items-center gap-2">
-                  <span>{categoryIcons[category as keyof typeof categoryIcons]}</span>
-                  {category.charAt(0).toUpperCase() + category.slice(1)}
-                </span>
-              )}
-            </button>
-          ))}
-        </div>
 
         {/* Featured FAQs */}
-        {featuredFAQs.length > 0 && selectedCategory === 'all' && (
+        {featuredFAQs.length > 0 && (
           <div className="mb-12">
             <h3 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
               Featured Questions
@@ -102,18 +58,13 @@ export default function FAQ({ faqData }: FAQProps) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
                 >
-                  <div className="flex items-start gap-3">
-                    <span className="text-2xl">
-                      {categoryIcons[faq.category as keyof typeof categoryIcons]}
-                    </span>
-                    <div className="flex-1">
-                      <h4 className="font-semibold text-gray-800 mb-2">
-                        {faq.question}
-                      </h4>
-                      <p className="text-gray-600 text-sm leading-relaxed">
-                        {faq.answer}
-                      </p>
-                    </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-800 mb-2">
+                      {faq.question}
+                    </h4>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {faq.answer}
+                    </p>
                   </div>
                 </motion.div>
               ))}
@@ -124,30 +75,22 @@ export default function FAQ({ faqData }: FAQProps) {
         {/* FAQ Items */}
         <div className="max-w-4xl mx-auto">
           <div className="space-y-4">
-            {filteredFAQs.map((faq, index) => (
+            {faqData.faqItems.map((faq, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-xl border border-gray-100 overflow-hidden"
+                className="bg-white/75 rounded-xl border border-gray-100 overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
               >
                 <button
                   onClick={() => toggleItem(index)}
-                  className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                  className="w-full p-6 text-left flex items-center justify-between transition-colors"
                 >
-                  <div className="flex items-center gap-4 flex-1">
-                    <span className="text-2xl">
-                      {categoryIcons[faq.category as keyof typeof categoryIcons]}
-                    </span>
-                    <div className="flex-1">
-                      <h3 className="font-semibold text-gray-800 mb-1">
-                        {faq.question}
-                      </h3>
-                      <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${categoryColors[faq.category as keyof typeof categoryColors]}`}>
-                        {faq.category.charAt(0).toUpperCase() + faq.category.slice(1)}
-                      </span>
-                    </div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-800">
+                      {faq.question}
+                    </h3>
                   </div>
                   <ChevronDown 
                     className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${
@@ -180,20 +123,6 @@ export default function FAQ({ faqData }: FAQProps) {
           </div>
         </div>
 
-        {/* No Results */}
-        {filteredFAQs.length === 0 && (
-          <div className="text-center py-12">
-            <div className="text-gray-400 mb-4">
-              <HelpCircle className="w-16 h-16 mx-auto" />
-            </div>
-            <h3 className="text-xl font-semibold text-gray-600 mb-2">
-              No questions found
-            </h3>
-            <p className="text-gray-500">
-              Try selecting a different category or check back later.
-            </p>
-          </div>
-        )}
       </div>
     </section>
   )

@@ -18,12 +18,12 @@ export default function Header() {
 
   return (
     <header className="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
-      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="container mx-auto md:px-6 px-4 md:py-4 py-2 flex justify-between items-center">
         <a 
           href="#" 
-          className="text-3xl font-bold gradient-text tracking-wider text-shadow"
+          className="md:text-3xl text-xl font-bold gradient-text tracking-wider text-shadow"
         >
-          Hathira
+          Hathira Wellness 
         </a>
         
         <nav className="hidden md:flex items-center space-x-8">

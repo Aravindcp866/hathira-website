@@ -12,28 +12,7 @@ export default defineConfig({
     NODE_ENV: process.env.NODE_ENV || 'development',
   },
   plugins: [
-    structureTool({
-      structure: (S) =>
-        S.list()
-          .title('Content')
-          .items([
-            S.listItem()
-              .title('Hero Section')
-              .child(S.document().schemaType('hero').documentId('hero')),
-            S.listItem()
-              .title('Services')
-              .child(S.documentTypeList('service')),
-            S.listItem()
-              .title('Treatments')
-              .child(S.documentTypeList('treatment')),
-            S.listItem()
-              .title('Contact Info')
-              .child(S.document().schemaType('contactInfo').documentId('contactInfo')),
-            S.listItem()
-              .title('Stack Card Section')
-              .child(S.document().schemaType('stackcard').documentId('stackcard')),
-          ]),
-    }),
+    structureTool(),
     visionTool(),
   ],
   schema: {

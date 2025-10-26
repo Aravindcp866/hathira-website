@@ -69,3 +69,16 @@ export interface StackCardData {
   description?: string
   cards: StackCardItem[]
 }
+
+export interface FAQItem {
+  question: string
+  answer: string
+  category: 'general' | 'skin' | 'hair' | 'body' | 'appointments' | 'pricing'
+  featured: boolean
+}
+
+export interface FAQData {
+  title: string
+  subtitle?: string
+  faqs: FAQItem[]
+}

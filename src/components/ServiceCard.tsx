@@ -36,6 +36,7 @@ const iconMap: { [key: string]: string } = {
 
 export default function ServiceCard({ 
   title, 
+  description,
   icon, 
   category, 
   treatments
@@ -86,7 +87,7 @@ export default function ServiceCard({
 
   return (
     <motion.div
-      className={`service-card rounded-2xl p-6 md:p-8 w-full max-w-sm ${styles.cardBg}`}
+      className={`service-card rounded-2xl p-6 md:p-8 w-full md:max-w-sm ${styles.cardBg}`}
       whileHover={{ y: -8 }}
       transition={{ duration: 0.3 }}
     >
@@ -94,7 +95,7 @@ export default function ServiceCard({
         className="flex justify-between items-center md:block text-left cursor-pointer md:cursor-default"
         onClick={handleHeaderClick}
       >
-        <div>
+        <div className='flex-1'>
           <div className={`inline-block p-4 ${styles.iconBg} rounded-full mb-4`}>
             <span className={`text-2xl ${styles.iconColor}`}>
               {iconMap[icon] || '✨'}
@@ -103,6 +104,8 @@ export default function ServiceCard({
           <h3 className="text-2xl font-semibold text-gray-800 pb-3">
             {title}
           </h3>
+         <p className={`${isExpanded ? 'block':'hidden'}`}>{description}</p>
+          <p className='md:block hidden'>{description}</p>
         </div>
         <ChevronDown 
           className={`w-6 h-6 ${styles.chevronColor} md:hidden flex-shrink-0 ml-4 transition-transform duration-300 ${
@@ -119,6 +122,7 @@ export default function ServiceCard({
               <span className="content">
                 {treatment.name} – <strong>{treatment.description}</strong>
               </span>
+              {/* <p>{description}</p> */}
             </li>
           ))}
         </ul>

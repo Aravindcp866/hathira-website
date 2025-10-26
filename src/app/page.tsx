@@ -6,19 +6,21 @@ import ContactSection from '@/components/ContactSection'
 import Footer from '@/components/Footer'
 import FloatingButtons from '@/components/FloatingButtons'
 import ClientWrapper from '@/components/ClientWrapper'
-import { Service, StackCardData } from '@/types'
+import FAQ from '@/components/FAQ'
+import { Service, StackCardData, FAQData } from '@/types'
 import { client, urlFor } from '../../lib/sanity'
-import { HERO_QUERY, SERVICES_QUERY, CONTACT_INFO_QUERY, STACKCARD_QUERY } from '../../lib/queries'
+import { HERO_QUERY, SERVICES_QUERY, CONTACT_INFO_QUERY, STACKCARD_QUERY, FAQ_QUERY } from '../../lib/queries'
 import StackableCard from '@/components/animated/StackableCard'
 
 // Fetch data from Sanity at build time
 async function getData() {
   try {
-    const [heroData, servicesData, contactData, stackCardData] = await Promise.all([
+    const [heroData, servicesData, contactData, stackCardData, faqData] = await Promise.all([
       client.fetch(HERO_QUERY),
       client.fetch(SERVICES_QUERY),
       client.fetch(CONTACT_INFO_QUERY),
-      client.fetch(STACKCARD_QUERY)
+      client.fetch(STACKCARD_QUERY),
+      client.fetch(FAQ_QUERY)
     ])
 
 
@@ -66,14 +68,15 @@ async function getData() {
       heroData: null,
       servicesData: [],
       contactData: null,
-      stackCardData: null
+      stackCardData: null,
+      faqData: null
     }
   }
 }
 
 export default async function Home() {
   // Fetch data from Sanity at build time
-  const { heroData, servicesData, contactData, stackCardData } = await getData()
+  const { heroData, servicesData, contactData, stackCardData, faqData } = await getData()
   
 
   // Group services by category
@@ -113,7 +116,7 @@ export default async function Home() {
                   Targeting common concerns with state-of-the-art treatments for flawless, healthy skin.
                 </p>
               </div>
-              <div className="flex flex-wrap items-stretch justify-center gap-8">
+              <div className="grid grid-cols-1 md:flex md:flex-wrap md:items-stretch md:justify-center gap-6 md:gap-8">
                 {servicesByCategory.skin.map((service: Service) => (
                   <div key={service._id}>
                     <ServiceCard
@@ -133,6 +136,11 @@ export default async function Home() {
 
         {stackCardData && (
           <StackableCard stackCardData={stackCardData} />
+        )}
+
+        {/* FAQ Section - only render if we have FAQ data */}
+        {faqData && faqData.faqs && faqData.faqs.length > 0 && (
+          <FAQ faqData={faqData} />
         )}
 
         {/* Contact Section - only render if we have contact data */}

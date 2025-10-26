@@ -84,3 +84,16 @@ export const STACKCARD_QUERY = groq`
     }
   }
 `
+
+export const FAQ_QUERY = groq`
+  *[_type == "faq"][0] {
+    title,
+    subtitle,
+    faqs[] {
+      question,
+      answer,
+      category,
+      featured
+    }
+  }
+`

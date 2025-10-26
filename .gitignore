@@ -49,3 +49,5 @@ sanity/static-*
 sanity/__generated__
 sanity/.env.local
 sanity/.env.*.local
+sanity/.env.development.local
+sanity/node_modules

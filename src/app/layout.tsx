@@ -16,64 +16,90 @@ const geist = Geist({
 })
 
 export const metadata: Metadata = {
-  title: 'Hathira Clinic | Skin, Hair & Body Treatments',
-  description: 'Hathira Clinic offers expert cosmetic treatments for skin, hair, and body. Rediscover your natural radiance with our advanced solutions.',
+  title: {
+    default: 'Hathira Wellness | Advanced Skin, Hair & Body Treatments in Trivandrum, Kerala',
+    template: '%s | Hathira Wellness'
+  },
+  description: 'Hathira Wellness offers expert cosmetic treatments for skin, hair, and body in Trivandrum, Kerala. Rediscover your natural radiance with our advanced solutions including laser therapy, chemical peels, PRP, and more.',
   keywords: [
-    'cosmetic clinic',
-    'skin treatment',
-    'hair treatment',
-    'body treatment',
-    'beauty clinic',
-    'Kollam',
+    'Hathira Wellness',
+    'Trivandrum',
     'Kerala',
-    'acne treatment',
-    'hair fall treatment',
-    'anti-aging',
-    'laser treatment',
-    'chemical peels',
-    'microneedling',
-    'PRP therapy'
+    'India',
+    'cosmetic clinic Trivandrum',
+    'skin treatment Kerala',
+    'hair treatment Trivandrum',
+    'body treatment Kerala',
+    'beauty clinic Trivandrum',
+    'dermatologist Trivandrum',
+    'acne treatment Kerala',
+    'hair fall treatment Trivandrum',
+    'anti-aging treatment',
+    'laser treatment Trivandrum',
+    'chemical peels Kerala',
+    'microneedling Trivandrum',
+    'PRP therapy Kerala',
+    'botox Trivandrum',
+    'dermal fillers Kerala',
+    'fat loss treatment',
+    'bridal makeup Trivandrum',
+    'aesthetic treatments',
+    'cosmetic surgery Kerala',
+    'skin rejuvenation Trivandrum'
   ],
-  authors: [{ name: 'Hathira Clinic' }],
-  creator: 'Hathira Clinic',
-  publisher: 'Hathira Clinic',
+  authors: [{ name: 'Hathira Wellness', url: 'http://hathira-wellness.in' }],
+  creator: 'Hathira Wellness',
+  publisher: 'Hathira Wellness',
+  applicationName: 'Hathira Wellness',
+  category: 'Health & Beauty',
+  classification: 'Medical & Beauty Services',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://www.hathiraclinic.com'),
+  metadataBase: new URL('http://hathira-wellness.in'),
   alternates: {
     canonical: '/',
+    languages: {
+      'en-US': '/en-US',
+      'hi-IN': '/hi-IN',
+    },
   },
   openGraph: {
-    title: 'Hathira Clinic | Advanced Cosmetic Treatments',
-    description: 'Expert care for skin, hair, and body. Tailored treatments to enhance your unique beauty and help you rediscover your natural radiance.',
-    url: 'https://www.hathiraclinic.com',
-    siteName: 'Hathira Clinic',
+    title: 'Hathira Wellness | Advanced Cosmetic Treatments in Trivandrum, Kerala',
+    description: 'Expert care for skin, hair, and body in Trivandrum, Kerala. Tailored treatments to enhance your unique beauty and help you rediscover your natural radiance.',
+    url: 'http://hathira-wellness.in',
+    siteName: 'Hathira Wellness',
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=1200&h=630&fit=crop&auto=format',
+        url: '/ogImage.png',
         width: 1200,
         height: 630,
-        alt: 'Hathira Clinic - Advanced Cosmetic Treatments',
+        alt: 'Hathira Wellness - Advanced Cosmetic Treatments in Trivandrum, Kerala',
+        type: 'image/png',
       },
     ],
     locale: 'en_US',
     type: 'website',
+    countryName: 'India',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Hathira Clinic | Advanced Cosmetic Treatments',
-    description: 'Expert care for skin, hair, and body. Tailored treatments to enhance your unique beauty.',
-    images: ['https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=1200&h=630&fit=crop&auto=format'],
+    title: 'Hathira Wellness | Advanced Cosmetic Treatments in Trivandrum, Kerala',
+    description: 'Expert care for skin, hair, and body in Trivandrum, Kerala. Tailored treatments to enhance your unique beauty.',
+    images: ['/ogImage.png'],
+    creator: '@hathiraclinic',
+    site: '@hathiraclinic',
   },
   robots: {
     index: true,
     follow: true,
+    nocache: true,
     googleBot: {
       index: true,
       follow: true,
+      noimageindex: false,
       'max-video-preview': -1,
       'max-image-preview': 'large',
       'max-snippet': -1,
@@ -81,6 +107,16 @@ export const metadata: Metadata = {
   },
   verification: {
     google: 'your-google-verification-code',
+    yandex: 'your-yandex-verification-code',
+    yahoo: 'your-yahoo-verification-code',
+  },
+  other: {
+    'mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-status-bar-style': 'default',
+    'apple-mobile-web-app-title': 'Hathira Wellness',
+    'msapplication-TileColor': '#D4A59A',
+    'msapplication-config': '/browserconfig.xml',
   },
 }
 
@@ -94,13 +130,32 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="manifest" href="/site.webmanifest" />
+        
+        {/* Theme Colors */}
         <meta name="theme-color" content="#D4A59A" />
         <meta name="msapplication-TileColor" content="#D4A59A" />
+        
+        {/* Additional SEO Meta Tags */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Hathira Wellness" />
+        
+        {/* Geo Tags */}
+        <meta name="geo.region" content="IN-KL" />
+        <meta name="geo.placename" content="Trivandrum, Kerala, India" />
+        <meta name="geo.position" content="8.8932;76.6141" />
+        <meta name="ICBM" content="8.8932, 76.6141" />
+        
+        {/* Business Hours */}
+        <meta name="business:contact_data:locality" content="Trivandrum" />
+        <meta name="business:contact_data:region" content="Kerala" />
+        <meta name="business:contact_data:country_name" content="India" />
       </head>
       <body className={`${inter.variable} ${geist.variable} antialiased`}>
         <LenisProvider>

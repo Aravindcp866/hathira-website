@@ -9,6 +9,7 @@ import ClientWrapper from '@/components/ClientWrapper'
 import FAQ from '@/components/FAQ'
 import BridalMakeup from '@/components/BridalMakeup'
 import FatLoss from '@/components/FatLoss'
+import Section from '@/components/Section'
 import { Service } from '@/types'
 import { client, urlFor } from '../../lib/sanity'
 import { HERO_QUERY, SERVICES_QUERY, CONTACT_INFO_QUERY, STACKCARD_QUERY, FAQ_QUERY, BRIDAL_MAKEUP_QUERY, FAT_LOSS_QUERY } from '../../lib/queries'
@@ -123,17 +124,17 @@ export default async function Home() {
 
         {/* Skin Problems Section - only render if we have services data */}
         {servicesByCategory.skin && servicesByCategory.skin.length > 0 && (
-          <section id="skin" className="my-20 md:py-28 fade-in-section">
-            <div className="container mx-auto ">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold gradient-text">
+          <Section id="skin">
+            <div className="container mx-auto px-4 md:px-6">
+              <div className="text-center mb-12 md:mb-16">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold gradient-text">
                   Advanced Skin Solutions
                 </h2>
-                <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
+                <p className="text-base md:text-lg text-gray-600 mt-3 md:mt-4 max-w-2xl mx-auto px-4">
                   Targeting common concerns with state-of-the-art treatments for flawless, healthy skin.
                 </p>
               </div>
-              <div className="grid grid-cols-1 md:flex md:flex-wrap md:items-stretch md:justify-center gap-6 md:gap-8">
+              <div className="grid grid-cols-1 md:flex md:flex-wrap md:items-stretch md:justify-center gap-4 md:gap-6 lg:gap-8">
                 {servicesByCategory.skin.map((service: Service, index: number) => (
                   <div key={service._id}>
                     <ServiceCard
@@ -150,22 +151,22 @@ export default async function Home() {
                 ))}
               </div>
             </div>
-          </section>
+          </Section>
         )}
 
         {/* Section for hair and tatoo removal */}
         {servicesByCategory.skin && servicesByCategory.skin.length > 0 && (
-          <section id="body" className="py-20  md:py-28 fade-in-section">
-            <div className="container mx-auto">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold gradient-text">
+          <Section id="body">
+            <div className="container mx-auto px-4 md:px-6">
+              <div className="text-center mb-12 md:mb-16">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold gradient-text">
                 Aesthetic / Beauty treatments
                 </h2>
-                <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
+                <p className="text-base md:text-lg text-gray-600 mt-3 md:mt-4 max-w-2xl mx-auto px-4">
                 Non-medical services aimed at improving appearance or self-expression.
                 </p>
               </div>
-              <div className="grid grid-cols-1 md:flex md:flex-wrap md:items-stretch md:justify-center gap-6 md:gap-8">
+              <div className="grid grid-cols-1 md:flex md:flex-wrap md:items-stretch md:justify-center gap-4 md:gap-6 lg:gap-8">
                 {servicesByCategory?.body?.map((service: Service) => (
                   <div key={service._id}>
                     <ServiceCard
@@ -181,7 +182,7 @@ export default async function Home() {
                 ))}
               </div>
             </div>
-          </section>
+          </Section>
         )}
 
         {stackCardData && (

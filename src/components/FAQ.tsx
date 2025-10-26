@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import { FAQData } from '@/types'
+import Section from '@/components/Section'
 
 interface FAQProps {
   faqData: FAQData
@@ -25,7 +26,7 @@ export default function FAQ({ faqData }: FAQProps) {
   const featuredFAQs = faqData.faqItems.filter(faq => faq.featured)
 
   return (
-    <section className="py-20 md:py-28 bg-gray-50">
+    <Section>
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
@@ -124,6 +125,6 @@ export default function FAQ({ faqData }: FAQProps) {
         </div>
 
       </div>
-    </section>
+    </Section>
   )
 }

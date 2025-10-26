@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { Star, Heart, Phone } from 'lucide-react'
 import Image from 'next/image'
 import { BridalMakeupData, ContactInfo } from '@/types'
+import Section from '@/components/Section'
 
 interface BridalMakeupProps {
   bridalData: BridalMakeupData
@@ -24,18 +25,18 @@ export default function BridalMakeup({ bridalData, contactData }: BridalMakeupPr
   }
 
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-br from-rose-50 via-pink-50 to-rose-100 ">
-      <div className="container mx-auto px-6 py-12">
+    <Section>
+      <div className="container mx-auto px-4 md:px-6">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-3 mb-4">
+        <div className="text-center mb-12 md:mb-16">
+          <div className="inline-flex items-center gap-3 mb-3 md:mb-4">
             <Heart className="w-8 h-8 text-rose-400 md:block hidden" />
-            <h2 className="text-4xl md:text-5xl font-bold gradient-text">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold gradient-text">
               {bridalData.title}
             </h2>
           </div>
           {bridalData.subtitle && (
-            <p className="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg text-gray-600 mt-3 md:mt-4 max-w-3xl mx-auto px-4">
               {bridalData.subtitle}
             </p>
           )}
@@ -69,7 +70,7 @@ export default function BridalMakeup({ bridalData, contactData }: BridalMakeupPr
             </p>
             <a
               href={bridalData.ctaLink || (contactData ? `tel:${contactData.phone}` : 'tel:+1234567890')}
-              className="inline-flex items-center gap-2 bg-rose-500 hover:bg-rose-600 text-white font-semibold px-8 py-4 rounded-full md:text-lg text-xs transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="inline-flex items-center gap-2 theme-bg-accent text-white font-semibold px-8 py-4 rounded-full md:text-lg text-xs transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               <Phone className="w-5 h-5" />
               {bridalData.ctaText}
@@ -123,6 +124,6 @@ export default function BridalMakeup({ bridalData, contactData }: BridalMakeupPr
 
     
       </div>
-    </section>
+    </Section>
   )
 }

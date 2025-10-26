@@ -2,6 +2,7 @@
 
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 import { motion } from 'framer-motion'
+import Section from '@/components/Section'
 
 interface ContactInfo {
   phone: string
@@ -26,7 +27,7 @@ interface ContactSectionProps {
 
 export default function ContactSection({ contactInfo }: ContactSectionProps) {
   return (
-    <section className="py-20 md:py-28 fade-in-section">
+    <Section>
       <div className="container mx-auto px-6">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold gradient-text">
@@ -116,7 +117,7 @@ export default function ContactSection({ contactInfo }: ContactSectionProps) {
               </a>
               <a
                 href={`tel:${contactInfo.phone}`}
-                className="bg-white border-2 border-primary-300 text-primary-600 font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-full shadow-md hover:bg-primary-50 transition-all text-center flex-1 text-sm sm:text-base"
+                className="bg-white border-2 border-primary-400 text-primary-400 font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-full shadow-md hover:bg-primary-50 transition-all text-center flex-1 text-sm sm:text-base"
               >
                 Call Now
               </a>
@@ -150,7 +151,7 @@ export default function ContactSection({ contactInfo }: ContactSectionProps) {
           </motion.div>
         </div>
       </div>
-    </section>
+    </Section>
   )
 }
 

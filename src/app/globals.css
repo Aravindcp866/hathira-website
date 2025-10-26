@@ -9,11 +9,14 @@
   html {
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
   }
   
   body {
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: none;
+    overflow-x: hidden;
+    touch-action: pan-y;
   }
   
   /* Disable Lenis on mobile */
@@ -24,12 +27,34 @@
   .lenis-smooth {
     scroll-behavior: smooth !important;
   }
+  
+  /* Improve mobile touch interactions */
+  * {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+  
+  /* Better mobile spacing */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Mobile-specific improvements */
+  .service-card {
+    margin-bottom: 1rem;
+  }
+  
+  /* Prevent horizontal scroll on mobile */
+  .grid {
+    overflow-x: hidden;
+  }
 }
 
 @layer base {
   body {
     font-family: 'Inter', sans-serif;
-    background-color: #FFFBF5;
+    background-color: #fefaf4;
     color: #4A4A4A;
     overscroll-behavior: none;
     -webkit-overflow-scrolling: touch;

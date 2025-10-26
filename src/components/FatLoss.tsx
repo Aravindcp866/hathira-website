@@ -16,6 +16,7 @@ import {
   ArrowRight
 } from 'lucide-react'
 import { FatLossData, ContactInfo } from '@/types'
+import Section from '@/components/Section'
 
 interface FatLossProps {
   fatLossData: FatLossData
@@ -37,18 +38,18 @@ export default function FatLoss({ fatLossData, contactData }: FatLossProps) {
   const [selectedTreatment, setSelectedTreatment] = useState<number | null>(null)
 
   return (
-    <section className="py-20 md:py-28 bg-theme-bg">
-      <div className="container mx-auto px-6 py-12">
+    <Section>
+      <div className="container mx-auto px-4 md:px-6">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-3 mb-4">
+        <div className="text-center mb-12 md:mb-16">
+          <div className="inline-flex items-center gap-3 mb-3 md:mb-4">
             {/* <TrendingDown className="w-8 h-8 text-green-500" /> */}
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold gradient-text">
               {fatLossData.title}
             </h2>
           </div>
           {fatLossData.subtitle && (
-            <p className="text-base md:text-lg text-gray-600 mt-3 md:mt-4 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg text-gray-600 mt-3 md:mt-4 max-w-3xl mx-auto px-4">
               {fatLossData.subtitle}
             </p>
           )}
@@ -56,8 +57,8 @@ export default function FatLoss({ fatLossData, contactData }: FatLossProps) {
 
         {/* Hero Image */}
         {fatLossData.heroImage && (
-          <div className="mb-16">
-            <div className="relative h-64 md:h-96 lg:h-[300px] rounded-2xl overflow-hidden shadow-2xl">
+          <div className="mb-12 md:mb-16">
+            <div className="relative h-64 md:h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src={fatLossData.heroImage.asset.url}
                 alt={fatLossData.heroImage.alt || 'Fat Loss Solutions'}
@@ -75,17 +76,17 @@ export default function FatLoss({ fatLossData, contactData }: FatLossProps) {
 
         {/* Key Benefits */}
         {fatLossData.benefits && fatLossData.benefits.length > 0 && (
-          <div className="mb-16">
-            <h3 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-gray-800">
+          <div className="mb-12 md:mb-16">
+            <h3 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8 text-gray-800">
               Why Choose Our Fat Loss Solutions?
             </h3>
-            <div className="flex md:flex-row flex-col gap-9 md:items-center justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
               {fatLossData.benefits.map((benefit, index) => {
                 const IconComponent = iconMap[benefit.icon] || Target
                 return (
                   <motion.div
                     key={index}
-                    className="bg-white md:w-[400px] rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center"
+                    className="bg-white rounded-2xl p-4 md:p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
@@ -228,7 +229,7 @@ export default function FatLoss({ fatLossData, contactData }: FatLossProps) {
             </p>
             <a
               href={fatLossData.ctaLink || (contactData ? `tel:${contactData.phone}` : 'tel:+1234567890')}
-              className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-3 md:px-8 md:py-4 rounded-full text-sm md:text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="inline-flex items-center gap-2 theme-bg-accent text-white font-semibold px-6 py-3 md:px-8 md:py-4 rounded-full text-sm md:text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               <Phone className="w-5 h-5" />
               {fatLossData.ctaText}
@@ -237,6 +238,6 @@ export default function FatLoss({ fatLossData, contactData }: FatLossProps) {
           </div>
         </div>
       </div>
-    </section>
+    </Section>
   )
 }

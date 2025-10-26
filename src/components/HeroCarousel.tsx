@@ -125,7 +125,7 @@ export default function HeroCarousel({ slides, gradientColors = ['#e1c0b5', '#c3
                 {(slide.ctaLink && slide.ctaText) || ctaText ? (
                   <a
                     href={slide.ctaLink || '#'}
-                    className="bg-white text-gray-800 font-bold px-8 py-3 rounded-full text-lg shadow-lg hover:bg-gray-100 transition-all inline-block"
+                    className="theme-bg-accent text-white font-bold px-8 py-3 rounded-full text-lg shadow-lg hover:shadow-xl transition-all inline-block"
                   >
                     {slide.ctaText || ctaText}
                   </a>

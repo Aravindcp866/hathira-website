@@ -81,7 +81,7 @@ export default function ServiceCard({
 
   return (
     <motion.div
-      className={`service-card rounded-2xl p-2 md:p-6 w-full justify-end md:max-w-sm md:w-[400px] ${styles.cardBg}`}
+      className={`service-card rounded-2xl p-4 md:p-6 lg:p-8 w-full md:max-w-sm md:w-[400px] ${styles.cardBg} shadow-lg hover:shadow-xl transition-shadow duration-300`}
       whileHover={{ y: -8 }}
       transition={{ duration: 0.3 }}
     >

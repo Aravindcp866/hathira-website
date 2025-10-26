@@ -25,6 +25,9 @@ export function LenisProvider({ children }: LenisProviderProps) {
   const [lenis, setLenis] = useState<Lenis | null>(null)
 
   useEffect(() => {
+    // Ensure we're on the client side
+    if (typeof window === 'undefined') return
+    
     // Check if device is mobile
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768
     
@@ -36,15 +39,23 @@ export function LenisProvider({ children }: LenisProviderProps) {
         html {
           scroll-behavior: smooth;
           -webkit-overflow-scrolling: touch;
+          overflow-x: hidden;
         }
         body {
+          -webkit-overflow-scrolling: touch;
+          overflow-x: hidden;
+          touch-action: pan-y;
+        }
+        * {
           -webkit-overflow-scrolling: touch;
         }
       `
       document.head.appendChild(style)
       
       return () => {
-        document.head.removeChild(style)
+        if (document.head.contains(style)) {
+          document.head.removeChild(style)
+        }
       }
     }
     

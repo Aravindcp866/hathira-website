@@ -47,7 +47,7 @@ module.exports = {
         },
         // Custom theme colors
         'theme-accent': '#D4A59A',
-        'theme-bg': '#FFFBF5',
+        'theme-bg': '#fefaf4',
         'theme-text': '#4A4A4A',
       },
       fontFamily: {

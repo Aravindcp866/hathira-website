@@ -25,7 +25,7 @@ export default function BridalMakeup({ bridalData, contactData }: BridalMakeupPr
   }
 
   return (
-    <Section>
+    <Section className='md:mt-0 mt-8'>
       <div className="container mx-auto px-4 md:px-6">
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">

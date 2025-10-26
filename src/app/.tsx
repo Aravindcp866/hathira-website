@@ -442,7 +442,7 @@ export default async function Home() {
         />
 
         {/* Skin Problems Section */}
-        {servicesByCategory.skin && (
+        {/* {servicesByCategory.skin && (
           <section id="skin" className="py-20 md:py-28 fade-in-section">
             <div className="container mx-auto ">
               <div className="text-center mb-16">
@@ -468,7 +468,7 @@ export default async function Home() {
               </div>
             </div>
           </section>
-        )}
+        )} */}
 
         {/* Hair Problems Section */}
         {servicesByCategory.hair && (

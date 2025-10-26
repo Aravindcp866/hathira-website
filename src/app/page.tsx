@@ -155,7 +155,7 @@ export default async function Home() {
         )}
 
         {/* Section for hair and tatoo removal */}
-        {servicesByCategory.skin && servicesByCategory.skin.length > 0 && (
+        {/* {servicesByCategory.skin && servicesByCategory.skin.length > 0 && (
           <Section id="body">
             <div className="container mx-auto px-4 md:px-6">
               <div className="text-center mb-12 md:mb-16">
@@ -183,11 +183,11 @@ export default async function Home() {
               </div>
             </div>
           </Section>
-        )}
+        )} */}
 
-        {stackCardData && (
+        {/* {stackCardData && (
           <StackableCard stackCardData={stackCardData} />
-        )}
+        )} */}
 
         {/* Bridal Makeup Section - only render if we have bridal data */}
         {bridalData && (

@@ -69,7 +69,7 @@ This document outlines the comprehensive SEO setup implemented for Hathira Clini
 - Fast loading optimization
 
 ### **Local SEO**
-- Kollam, Kerala location targeting
+- Trivandrum, Kerala location targeting
 - Geo-coordinates (8.8932, 76.6141)
 - Local business hours
 - Area served specifications
@@ -188,17 +188,17 @@ This document outlines the comprehensive SEO setup implemented for Hathira Clini
 ## 🎯 **Target Keywords**
 
 ### **Primary Keywords**
-- cosmetic clinic Kollam
+- cosmetic clinic Trivandrum
 - skin treatment Kerala
-- hair treatment Kollam
-- beauty clinic Kollam
-- dermatologist Kollam
+- hair treatment Trivandrum
+- beauty clinic Trivandrum
+- dermatologist Trivandrum
 
 ### **Long-tail Keywords**
-- best cosmetic clinic in Kollam
+- best cosmetic clinic in Trivandrum
 - skin rejuvenation treatment Kerala
-- hair fall treatment Kollam
-- bridal makeup Kollam
+- hair fall treatment Trivandrum
+- bridal makeup Trivandrum
 - laser treatment Kerala
 
 ## 📊 **Performance Monitoring**

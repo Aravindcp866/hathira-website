@@ -12,14 +12,14 @@ interface SEOHeadProps {
 }
 
 export default function SEOHead({
-  title = 'Hathira Clinic | Advanced Skin, Hair & Body Treatments in Kollam, Kerala',
-  description = 'Hathira Clinic offers expert cosmetic treatments for skin, hair, and body in Kollam, Kerala. Rediscover your natural radiance with our advanced solutions.',
+  title = 'Hathira Clinic | Advanced Skin, Hair & Body Treatments in Trivandrum, Kerala',
+  description = 'Hathira Clinic offers expert cosmetic treatments for skin, hair, and body in Trivandrum, Kerala. Rediscover your natural radiance with our advanced solutions.',
   keywords = [
-    'cosmetic clinic Kollam',
+    'cosmetic clinic Trivandrum',
     'skin treatment Kerala',
-    'hair treatment Kollam',
-    'beauty clinic Kollam',
-    'dermatologist Kollam',
+    'hair treatment Trivandrum',
+    'beauty clinic Trivandrum',
+    'dermatologist Trivandrum',
     'aesthetic treatments Kerala'
   ],
   canonical = 'https://www.hathira-wellness.in',
@@ -65,7 +65,7 @@ export default function SEOHead({
       
       {/* Geo Tags */}
       <meta name="geo.region" content="IN-KL" />
-      <meta name="geo.placename" content="Kollam, Kerala, India" />
+      <meta name="geo.placename" content="Trivandrum, Kerala, India" />
       <meta name="geo.position" content="8.8932;76.6141" />
       <meta name="ICBM" content="8.8932, 76.6141" />
       

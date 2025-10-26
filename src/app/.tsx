@@ -367,7 +367,7 @@ const fallbackData = {
   contactData: {
     phone: '+91 8075 870 652',
     email: 'info@hathiraclinic.com',
-    address: 'Near KSRTC Bus Stand, Kollam, Kerala, India',
+    address: 'Near KSRTC Bus Stand, Trivandrum, Kerala, India',
     hours: {
       weekdays: 'Mon - Sat: 9:00 AM - 7:00 PM',
       sunday: 'Sunday: 10:00 AM - 5:00 PM'

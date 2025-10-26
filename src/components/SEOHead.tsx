@@ -22,7 +22,7 @@ export default function SEOHead({
     'dermatologist Kollam',
     'aesthetic treatments Kerala'
   ],
-  canonical = 'https://www.hathiraclinic.com',
+  canonical = 'https://www.hathira-wellness.in',
   ogImage = '/ogImage.png',
   noindex = false
 }: SEOHeadProps) {
@@ -40,7 +40,7 @@ export default function SEOHead({
       {/* Open Graph */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={`https://www.hathiraclinic.com${ogImage}`} />
+      <meta property="og:image" content={`https://www.hathira-wellness.in/ogImage.png`} />
       <meta property="og:url" content={canonical} />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="Hathira Clinic" />
@@ -50,7 +50,7 @@ export default function SEOHead({
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={`https://www.hathiraclinic.com${ogImage}`} />
+      <meta name="twitter:image" content={`https://www.hathira-wellness.in${ogImage}`} />
       <meta name="twitter:site" content="@hathiraclinic" />
       <meta name="twitter:creator" content="@hathiraclinic" />
       

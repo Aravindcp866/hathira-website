@@ -131,7 +131,7 @@ export const medicalBusinessSchema = {
 export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://www.hathiraclinic.com/#business",
+  "@id": "https://www.hathira-wellness.in/#business",
   "name": "Hathira Wellness",
   "description": "Premier cosmetic and aesthetic clinic in Kollam, Kerala offering advanced treatments for skin, hair, and body.",
   "url": "http://hathira-wellness.in",
@@ -155,19 +155,19 @@ export const localBusinessSchema = {
     "Su 10:00-16:00"
   ],
   "priceRange": "$$",
-  "image": "https://www.hathiraclinic.com/ogImage.png",
-  "logo": "https://www.hathiraclinic.com/favicon.png"
+  "image": "https://www.hathira-wellness.in/ogImage.png",
+  "logo": "https://www.hathira-wellness.in/favicon.png"
 }
 
 // Organization Schema
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "@id": "https://www.hathiraclinic.com/#organization",
+  "@id": "https://www.hathira-wellness.in/#organization",
   "name": "Hathira Wellness",
   "alternateName": "Hathira Aesthetic Clinic",
   "url": "http://hathira-wellness.in",
-  "logo": "https://www.hathiraclinic.com/favicon.png",
+  "logo": "https://www.hathira-wellness.in/favicon.png",
   "description": "Leading cosmetic and aesthetic clinic in Kollam, Kerala providing world-class treatments for skin, hair, and body enhancement.",
   "foundingDate": "2020",
   "founder": {
@@ -253,19 +253,19 @@ export const breadcrumbSchema = {
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://www.hathiraclinic.com"
+      "item": "https://www.hathira-wellness.in"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Services",
-      "item": "https://www.hathiraclinic.com#services"
+      "item": "https://www.hathira-wellness.in#services"
     },
     {
       "@type": "ListItem",
       "position": 3,
       "name": "Contact",
-      "item": "https://www.hathiraclinic.com#contact"
+      "item": "https://www.hathira-wellness.in#contact"
     }
   ]
 }

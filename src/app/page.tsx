@@ -115,7 +115,7 @@ export default async function Home() {
         {/* Skin Problems Section - only render if we have services data */}
         {servicesByCategory.skin && servicesByCategory.skin.length > 0 && (
           <section id="skin" className="py-20 md:py-28 fade-in-section">
-            <div className="container mx-auto px-6 py-12 ">
+            <div className="container mx-auto ">
               <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-5xl font-bold gradient-text">
                   Advanced Skin Solutions
@@ -147,7 +147,7 @@ export default async function Home() {
         {/* Section for hair and tatoo removal */}
         {servicesByCategory.skin && servicesByCategory.skin.length > 0 && (
           <section id="body" className="py-20 md:py-28 fade-in-section">
-            <div className="container mx-auto px-6 py-12 ">
+            <div className="container mx-auto">
               <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-5xl font-bold gradient-text">
                 Aesthetic / Beauty treatments
@@ -157,7 +157,7 @@ export default async function Home() {
                 </p>
               </div>
               <div className="grid grid-cols-1 md:flex md:flex-wrap md:items-stretch md:justify-center gap-6 md:gap-8">
-                {servicesByCategory.body.map((service: Service) => (
+                {servicesByCategory?.body?.map((service: Service) => (
                   <div key={service._id}>
                     <ServiceCard
                       title={service.title}
@@ -181,7 +181,7 @@ export default async function Home() {
 
         {/* Bridal Makeup Section - only render if we have bridal data */}
         {bridalData && (
-          <BridalMakeup bridalData={bridalData} />
+          <BridalMakeup bridalData={bridalData} contactData={contactData} />
         )}
 
         {/* FAQ Section - only render if we have FAQ data */}

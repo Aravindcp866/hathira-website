@@ -25,7 +25,7 @@ export default function Footer({ contactInfo }: FooterProps) {
   ]
 
   return (
-    <footer className="bg-gray-800 text-white">
+    <footer className="bg-gray-800 text-white px-16">
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
           <div>
@@ -115,7 +115,7 @@ export default function Footer({ contactInfo }: FooterProps) {
         </div>
         
         <div className="mt-12 border-t border-gray-700 pt-6 text-center text-gray-500">
-          <p>&copy; 2024 Hathira Clinic. All Rights Reserved.</p>
+          <p>&copy; 2025 Hathira Clinic. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

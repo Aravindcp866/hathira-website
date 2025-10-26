@@ -4,13 +4,14 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Star, Heart, Sparkles, Clock, DollarSign, CheckCircle, Phone } from 'lucide-react'
 import Image from 'next/image'
-import { BridalMakeupData } from '@/types'
+import { BridalMakeupData, ContactInfo } from '@/types'
 
 interface BridalMakeupProps {
   bridalData: BridalMakeupData
+  contactData?: ContactInfo
 }
 
-export default function BridalMakeup({ bridalData }: BridalMakeupProps) {
+export default function BridalMakeup({ bridalData, contactData }: BridalMakeupProps) {
   const [selectedService, setSelectedService] = useState<number | null>(null)
 
   const renderStars = (rating: number) => {
@@ -25,12 +26,12 @@ export default function BridalMakeup({ bridalData }: BridalMakeupProps) {
   }
 
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-br from-rose-50 via-pink-50 to-rose-100">
-      <div className="container mx-auto px-6">
+    <section className="py-20 md:py-28 bg-gradient-to-br from-rose-50 via-pink-50 to-rose-100 ">
+      <div className="container mx-auto px-6 py-12">
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-3 mb-4">
-            <Heart className="w-8 h-8 text-rose-400" />
+            <Heart className="w-8 h-8 text-rose-400 md:block hidden" />
             <h2 className="text-4xl md:text-5xl font-bold gradient-text">
               {bridalData.title}
             </h2>
@@ -44,8 +45,8 @@ export default function BridalMakeup({ bridalData }: BridalMakeupProps) {
 
         {/* Hero Image */}
         {bridalData.heroImage && (
-          <div className="mb-16">
-            <div className="relative h-96 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+          <div className="mb-16 flex md:flex-row flex-col items-center justify-center rounded-[12px] overflow-auto">
+            <div className="md:w-[300px] md:h-[344px] w-full relative h-96  overflow-hidden shadow-2xl">
               <Image
                 src={bridalData.heroImage.asset.url}
                 alt={bridalData.heroImage.alt || 'Bridal Makeup'}
@@ -58,72 +59,30 @@ export default function BridalMakeup({ bridalData }: BridalMakeupProps) {
                 <p className="text-lg opacity-90">Let us make you feel absolutely beautiful</p>
               </div>
             </div>
+                {/* Call to Action */}
+        <div className="text-center">
+          <div className="bg-white  p-8 md:p-12 shadow-xl max-w-2xl mx-auto">
+            <Heart className="w-12 h-12 text-rose-400 mx-auto mb-4" />
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+              Ready for Your Special Day?
+            </h3>
+            <p className="text-gray-600 mb-6">
+              Book your bridal consultation and let us create the perfect look for your wedding day.
+            </p>
+            <a
+              href={bridalData.ctaLink || (contactData ? `tel:${contactData.phone}` : 'tel:+1234567890')}
+              className="inline-flex items-center gap-2 bg-rose-500 hover:bg-rose-600 text-white font-semibold px-8 py-4 rounded-full md:text-lg text-xs transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              <Phone className="w-5 h-5" />
+              {bridalData.ctaText}
+            </a>
+          </div>
+        </div>
           </div>
         )}
 
         {/* Services Grid */}
-        {bridalData.services && bridalData.services.length > 0 && (
-          <div className="mb-16">
-            <h3 className="text-3xl font-bold text-center mb-12 text-gray-800">
-              Our Bridal Services
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {bridalData.services.map((service, index) => (
-                <motion.div
-                  key={index}
-                  className={`bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer ${
-                    selectedService === index ? 'ring-2 ring-rose-400' : ''
-                  }`}
-                  whileHover={{ y: -5 }}
-                  onClick={() => setSelectedService(selectedService === index ? null : index)}
-                >
-                  {service.image && (
-                    <div className="mb-4 relative h-48">
-                      <Image
-                        src={service.image.asset.url}
-                        alt={service.image.alt || service.name}
-                        fill
-                        className="object-cover rounded-lg"
-                      />
-                    </div>
-                  )}
-                  
-                  <div className="flex items-center justify-between mb-3">
-                    <h4 className="text-xl font-semibold text-gray-800">{service.name}</h4>
-                    {service.featured && (
-                      <Sparkles className="w-5 h-5 text-rose-400" />
-                    )}
-                  </div>
-
-                  <p className="text-gray-600 mb-4">{service.description}</p>
-
-                  <div className="flex items-center gap-4 mb-4 text-sm text-gray-500">
-                    <div className="flex items-center gap-1">
-                      <DollarSign className="w-4 h-4" />
-                      <span>{service.price}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Clock className="w-4 h-4" />
-                      <span>{service.duration}</span>
-                    </div>
-                  </div>
-
-                  {service.features && service.features.length > 0 && (
-                    <div className="space-y-2">
-                      {service.features.slice(0, 3).map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-center gap-2 text-sm text-gray-600">
-                          <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                          <span>{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        )}
-
+     
         {/* Testimonials */}
         {bridalData.testimonials && bridalData.testimonials.length > 0 && (
           <div className="mb-16">
@@ -164,25 +123,7 @@ export default function BridalMakeup({ bridalData }: BridalMakeupProps) {
           </div>
         )}
 
-        {/* Call to Action */}
-        <div className="text-center">
-          <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl max-w-2xl mx-auto">
-            <Heart className="w-12 h-12 text-rose-400 mx-auto mb-4" />
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-              Ready for Your Special Day?
-            </h3>
-            <p className="text-gray-600 mb-6">
-              Book your bridal consultation and let us create the perfect look for your wedding day.
-            </p>
-            <a
-              href={bridalData.ctaLink || 'tel:+1234567890'}
-              className="inline-flex items-center gap-2 bg-rose-500 hover:bg-rose-600 text-white font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
-            >
-              <Phone className="w-5 h-5" />
-              {bridalData.ctaText}
-            </a>
-          </div>
-        </div>
+    
       </div>
     </section>
   )

@@ -87,26 +87,73 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 100;
-    box-shadow: 2px 2px 3px #999;
-    transition: transform 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.2);
   }
   
   .floating-button:hover {
     transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
   }
   
   .whatsapp-float {
-    background-color: #25d366;
+    background: linear-gradient(135deg, #25d366, #128c7e);
     right: 40px;
     animation: pulse-green 2.5s infinite;
   }
   
   .call-float {
-    background-color: #007BFF;
+    background: linear-gradient(135deg, #007BFF, #0056b3);
     right: 115px;
     animation: pulse-blue 2.5s infinite;
     animation-delay: 1.25s;
+  }
+
+  /* Tooltip styles */
+  .floating-button::before {
+    content: attr(aria-label);
+    position: absolute;
+    right: 70px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1001;
+  }
+
+  .floating-button:hover::before {
+    opacity: 1;
+  }
+
+  /* Mobile responsive styles */
+  @media (max-width: 768px) {
+    .floating-button {
+      width: 50px;
+      height: 50px;
+      bottom: 20px;
+    }
+    
+    .call-float {
+      right: 90px;
+    }
+    
+    .whatsapp-float {
+      right: 20px;
+    }
+    
+    .floating-button::before {
+      display: none; /* Hide tooltips on mobile */
+    }
   }
   
   .hero-animated-bg {

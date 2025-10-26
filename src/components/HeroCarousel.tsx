@@ -24,7 +24,7 @@ export default function HeroCarousel({ slides, gradientColors = ['#e1c0b5', '#c3
 
 
   return (
-    <section className="relative h-[100vh] min-h-[900px] overflow-hidden">
+    <section className="relative h-[100vh] min-h-[600px] md:min-h-[900px] overflow-hidden">
       <style jsx global>{`
         .hero-carousel-wrapper {
           position: relative !important;
@@ -86,7 +86,7 @@ export default function HeroCarousel({ slides, gradientColors = ['#e1c0b5', '#c3
           }
 
           return (
-            <SplideSlide key={index} className="relative h-[100vh] min-h-[900px]">
+            <SplideSlide key={index} className="relative h-[100vh] min-h-[600px] md:min-h-[900px]">
               <div className="absolute inset-0 bg-black/30 z-10"></div>
               
               {/* Animated Gradient Background */}
@@ -106,7 +106,7 @@ export default function HeroCarousel({ slides, gradientColors = ['#e1c0b5', '#c3
               />
 
               <motion.div
-                className="absolute inset-0 z-30 w-full h-full flex flex-col items-center justify-center text-white text-center px-6"
+                className="absolute inset-0 z-30 w-full md:h-full flex flex-col items-center justify-center text-white text-center px-6"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: 'easeOut' }}

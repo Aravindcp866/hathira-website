@@ -132,3 +132,55 @@ export interface BridalMakeupData {
   ctaText: string
   ctaLink: string
 }
+
+export interface FatLossBenefit {
+  title: string
+  description: string
+  icon: string
+}
+
+export interface FatLossTreatment {
+  name: string
+  description: string
+  price: string
+  duration: string
+  image?: {
+    asset: {
+      _id: string
+      url: string
+    }
+    alt?: string
+  }
+  features: string[]
+  featured: boolean
+}
+
+export interface FatLossTestimonial {
+  name: string
+  text: string
+  weightLoss: number
+  duration: string
+  image?: {
+    asset: {
+      _id: string
+      url: string
+    }
+  }
+}
+
+export interface FatLossData {
+  title: string
+  subtitle?: string
+  heroImage?: {
+    asset: {
+      _id: string
+      url: string
+    }
+    alt?: string
+  }
+  benefits: FatLossBenefit[]
+  treatments: FatLossTreatment[]
+  testimonials: FatLossTestimonial[]
+  ctaText: string
+  ctaLink: string
+}

@@ -38,6 +38,9 @@ export default defineConfig({
             S.listItem()
             .title('Bridal Makeup Section')
             .child(S.document().schemaType('bridalMakeup').documentId('bridalMakeup')),
+            S.listItem()
+            .title('Fat Loss Section')
+            .child(S.document().schemaType('fatLoss').documentId('fatLoss')),
           ]),
     }),
     visionTool(),

@@ -8,21 +8,23 @@ import FloatingButtons from '@/components/FloatingButtons'
 import ClientWrapper from '@/components/ClientWrapper'
 import FAQ from '@/components/FAQ'
 import BridalMakeup from '@/components/BridalMakeup'
+import FatLoss from '@/components/FatLoss'
 import { Service } from '@/types'
 import { client, urlFor } from '../../lib/sanity'
-import { HERO_QUERY, SERVICES_QUERY, CONTACT_INFO_QUERY, STACKCARD_QUERY, FAQ_QUERY, BRIDAL_MAKEUP_QUERY } from '../../lib/queries'
+import { HERO_QUERY, SERVICES_QUERY, CONTACT_INFO_QUERY, STACKCARD_QUERY, FAQ_QUERY, BRIDAL_MAKEUP_QUERY, FAT_LOSS_QUERY } from '../../lib/queries'
 import StackableCard from '@/components/animated/StackableCard'
 
 // Fetch data from Sanity at build time
 async function getData() {
   try {
-    const [heroData, servicesData, contactData, stackCardData, faqData, bridalData] = await Promise.all([
+    const [heroData, servicesData, contactData, stackCardData, faqData, bridalData, fatLossData] = await Promise.all([
       client.fetch(HERO_QUERY),
       client.fetch(SERVICES_QUERY),
       client.fetch(CONTACT_INFO_QUERY),
       client.fetch(STACKCARD_QUERY),
       client.fetch(FAQ_QUERY),
-      client.fetch(BRIDAL_MAKEUP_QUERY)
+      client.fetch(BRIDAL_MAKEUP_QUERY),
+      client.fetch(FAT_LOSS_QUERY)
     ])
 
 
@@ -63,7 +65,8 @@ async function getData() {
         })) : []
       } : null,
       faqData: faqData || null,
-      bridalData: bridalData || null
+      bridalData: bridalData || null,
+      fatLossData: fatLossData || null
     }
   } catch (error) {
     console.error('Error fetching data from Sanity:', error)
@@ -74,14 +77,15 @@ async function getData() {
       contactData: null,
       stackCardData: null,
       faqData: null,
-      bridalData: null
+      bridalData: null,
+      fatLossData: null
     }
   }
 }
 
 export default async function Home() {
   // Fetch data from Sanity at build time
-  const { heroData, servicesData, contactData, stackCardData, faqData, bridalData } = await getData()
+  const { heroData, servicesData, contactData, stackCardData, faqData, bridalData, fatLossData } = await getData()
   
   // Debug: Log FAQ data
   console.log('FAQ data:', faqData)
@@ -112,9 +116,14 @@ export default async function Home() {
               />
             )}
 
+        {/* Fat Loss Section - only render if we have fat loss data */}
+        {fatLossData && (
+          <FatLoss fatLossData={fatLossData} contactData={contactData} />
+        )}
+
         {/* Skin Problems Section - only render if we have services data */}
         {servicesByCategory.skin && servicesByCategory.skin.length > 0 && (
-          <section id="skin" className="py-20 md:py-28 fade-in-section">
+          <section id="skin" className="my-20 md:py-28 fade-in-section">
             <div className="container mx-auto ">
               <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-5xl font-bold gradient-text">
@@ -146,7 +155,7 @@ export default async function Home() {
 
         {/* Section for hair and tatoo removal */}
         {servicesByCategory.skin && servicesByCategory.skin.length > 0 && (
-          <section id="body" className="py-20 md:py-28 fade-in-section">
+          <section id="body" className="py-20  md:py-28 fade-in-section">
             <div className="container mx-auto">
               <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-5xl font-bold gradient-text">

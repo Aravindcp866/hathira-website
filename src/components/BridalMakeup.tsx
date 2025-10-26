@@ -1,8 +1,7 @@
 'use client'
 
-import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Star, Heart, Sparkles, Clock, DollarSign, CheckCircle, Phone } from 'lucide-react'
+import { Star, Heart, Phone } from 'lucide-react'
 import Image from 'next/image'
 import { BridalMakeupData, ContactInfo } from '@/types'
 
@@ -12,7 +11,6 @@ interface BridalMakeupProps {
 }
 
 export default function BridalMakeup({ bridalData, contactData }: BridalMakeupProps) {
-  const [selectedService, setSelectedService] = useState<number | null>(null)
 
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, i) => (

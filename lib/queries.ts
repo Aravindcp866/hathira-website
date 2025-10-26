@@ -145,3 +145,51 @@ export const BRIDAL_MAKEUP_QUERY = groq`
     ctaLink
   }
 `
+
+export const FAT_LOSS_QUERY = groq`
+  *[_type == "fatLoss"][0] {
+    title,
+    subtitle,
+    heroImage {
+      asset-> {
+        _id,
+        url
+      },
+      alt
+    },
+    benefits[] {
+      title,
+      description,
+      icon
+    },
+    treatments[] {
+      name,
+      description,
+      price,
+      duration,
+      image {
+        asset-> {
+          _id,
+          url
+        },
+        alt
+      },
+      features,
+      featured
+    },
+    testimonials[] {
+      name,
+      text,
+      weightLoss,
+      duration,
+      image {
+        asset-> {
+          _id,
+          url
+        }
+      }
+    },
+    ctaText,
+    ctaLink
+  }
+`

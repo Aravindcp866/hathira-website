@@ -1,6 +1,6 @@
 'use client'
 
-import { Phone, MessageCircle } from 'lucide-react'
+import { Phone } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 interface FloatingButtonsProps {

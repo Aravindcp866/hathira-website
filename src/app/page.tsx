@@ -13,17 +13,15 @@ import Section from '@/components/Section'
 import JsonLd, { medicalBusinessSchema, localBusinessSchema, organizationSchema, faqSchema, breadcrumbSchema } from '@/components/JsonLd'
 import { Service } from '@/types'
 import { client, urlFor } from '../../lib/sanity'
-import { HERO_QUERY, SERVICES_QUERY, CONTACT_INFO_QUERY, STACKCARD_QUERY, FAQ_QUERY, BRIDAL_MAKEUP_QUERY, FAT_LOSS_QUERY } from '../../lib/queries'
-import StackableCard from '@/components/animated/StackableCard'
+import { HERO_QUERY, SERVICES_QUERY, CONTACT_INFO_QUERY, FAQ_QUERY, BRIDAL_MAKEUP_QUERY, FAT_LOSS_QUERY } from '../../lib/queries'
 
 // Fetch data from Sanity at build time
 async function getData() {
   try {
-    const [heroData, servicesData, contactData, stackCardData, faqData, bridalData, fatLossData] = await Promise.all([
+    const [heroData, servicesData, contactData, faqData, bridalData, fatLossData] = await Promise.all([
       client.fetch(HERO_QUERY),
       client.fetch(SERVICES_QUERY),
       client.fetch(CONTACT_INFO_QUERY),
-      client.fetch(STACKCARD_QUERY),
       client.fetch(FAQ_QUERY),
       client.fetch(BRIDAL_MAKEUP_QUERY),
       client.fetch(FAT_LOSS_QUERY)
@@ -54,18 +52,6 @@ async function getData() {
           twitter: ''
         }
       } : null,
-      stackCardData: stackCardData ? {
-        ...stackCardData,
-        cards: stackCardData.cards && Array.isArray(stackCardData.cards) ? stackCardData.cards.map((card: any) => ({ // eslint-disable-line @typescript-eslint/no-explicit-any
-          ...card,
-          image: {
-            asset: {
-              _id: card.image.asset._id,
-              url: card.image.asset.url
-            }
-          }
-        })) : []
-      } : null,
       faqData: faqData || null,
       bridalData: bridalData || null,
       fatLossData: fatLossData || null
@@ -77,7 +63,6 @@ async function getData() {
       heroData: null,
       servicesData: [],
       contactData: null,
-      stackCardData: null,
       faqData: null,
       bridalData: null,
       fatLossData: null
@@ -87,7 +72,7 @@ async function getData() {
 
 export default async function Home() {
   // Fetch data from Sanity at build time
-  const { heroData, servicesData, contactData, stackCardData, faqData, bridalData, fatLossData } = await getData()
+  const { heroData, servicesData, contactData, faqData, bridalData, fatLossData } = await getData()
   
   // Debug: Log FAQ data
   console.log('FAQ data:', faqData)

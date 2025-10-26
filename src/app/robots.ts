@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/studio/', '/api/', '/_next/', '/admin/'],
     },
-    sitemap: 'https://www.hathiraclinic.com/sitemap.xml',
+    sitemap: 'http://hathira-wellness.in/sitemap.xml',
   }
 }

@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.hathiraclinic.com'
+  const baseUrl = 'http://hathira-wellness.in'
   
   return [
     {

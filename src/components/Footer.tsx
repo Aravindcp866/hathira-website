@@ -1,6 +1,6 @@
 'use client'
 
-import { Instagram, Facebook, Twitter, Phone, Mail, MapPin, Clock, Heart, Sparkles } from 'lucide-react'
+import { Instagram, Facebook, Twitter, Phone, Mail, MapPin, Heart, Sparkles } from 'lucide-react'
 
 interface ContactInfo {
   phone: string

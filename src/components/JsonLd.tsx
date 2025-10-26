@@ -3,7 +3,7 @@
 import Script from 'next/script'
 
 interface JsonLdProps {
-  data: any
+  data: Record<string, any> // eslint-disable-line @typescript-eslint/no-explicit-any
 }
 
 export default function JsonLd({ data }: JsonLdProps) {
@@ -20,26 +20,26 @@ export default function JsonLd({ data }: JsonLdProps) {
 export const medicalBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "MedicalBusiness",
-  "name": "Hathira Clinic",
+  "name": "Hathira Wellness",
   "alternateName": "Hathira Aesthetic Clinic",
-  "description": "Advanced cosmetic treatments for skin, hair, and body in Kollam, Kerala. Expert care with cutting-edge technology.",
-  "url": "https://www.hathiraclinic.com",
-  "logo": "https://www.hathiraclinic.com/favicon.png",
-  "image": "https://www.hathiraclinic.com/ogImage.png",
+  "description": "Advanced cosmetic treatments for skin, hair, and body in Trivandrum, Kerala. Expert care with cutting-edge technology.",
+  "url": "http://hathira-wellness.in",
+  "logo": "http://hathira-wellness.in/favicon.png",
+  "image": "http://hathira-wellness.in/ogImage.png",
   "telephone": "+91-8075870652",
   "email": "info@hathiraclinic.com",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Your Street Address",
-    "addressLocality": "Kollam",
+    "addressLocality": "Trivandrum",
     "addressRegion": "Kerala",
-    "postalCode": "691001",
+    "postalCode": "695001",
     "addressCountry": "IN"
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": "8.8932",
-    "longitude": "76.6141"
+    "latitude": "8.5241",
+    "longitude": "76.9366"
   },
   "openingHoursSpecification": [
     {
@@ -110,7 +110,7 @@ export const medicalBusinessSchema = {
   ],
   "areaServed": {
     "@type": "City",
-    "name": "Kollam",
+    "name": "Trivandrum",
     "containedInPlace": {
       "@type": "State",
       "name": "Kerala",
@@ -132,23 +132,23 @@ export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "@id": "https://www.hathiraclinic.com/#business",
-  "name": "Hathira Clinic",
+  "name": "Hathira Wellness",
   "description": "Premier cosmetic and aesthetic clinic in Kollam, Kerala offering advanced treatments for skin, hair, and body.",
-  "url": "https://www.hathiraclinic.com",
+  "url": "http://hathira-wellness.in",
   "telephone": "+91-8075870652",
   "email": "info@hathiraclinic.com",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Your Street Address",
-    "addressLocality": "Kollam",
+    "addressLocality": "Trivandrum",
     "addressRegion": "Kerala",
-    "postalCode": "691001",
+    "postalCode": "695001",
     "addressCountry": "IN"
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": "8.8932",
-    "longitude": "76.6141"
+    "latitude": "8.5241",
+    "longitude": "76.9366"
   },
   "openingHours": [
     "Mo-Sa 09:00-18:00",
@@ -164,9 +164,9 @@ export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": "https://www.hathiraclinic.com/#organization",
-  "name": "Hathira Clinic",
+  "name": "Hathira Wellness",
   "alternateName": "Hathira Aesthetic Clinic",
-  "url": "https://www.hathiraclinic.com",
+  "url": "http://hathira-wellness.in",
   "logo": "https://www.hathiraclinic.com/favicon.png",
   "description": "Leading cosmetic and aesthetic clinic in Kollam, Kerala providing world-class treatments for skin, hair, and body enhancement.",
   "foundingDate": "2020",
@@ -177,9 +177,9 @@ export const organizationSchema = {
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Your Street Address",
-    "addressLocality": "Kollam",
+    "addressLocality": "Trivandrum",
     "addressRegion": "Kerala",
-    "postalCode": "691001",
+    "postalCode": "695001",
     "addressCountry": "IN"
   },
   "contactPoint": {

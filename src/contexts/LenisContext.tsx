@@ -25,9 +25,32 @@ export function LenisProvider({ children }: LenisProviderProps) {
   const [lenis, setLenis] = useState<Lenis | null>(null)
 
   useEffect(() => {
-    // Initialize Lenis for smooth scrolling
+    // Check if device is mobile
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768
+    
+    // Disable Lenis completely on mobile for better native scrolling
+    if (isMobile) {
+      // Add CSS to ensure smooth native scrolling on mobile
+      const style = document.createElement('style')
+      style.textContent = `
+        html {
+          scroll-behavior: smooth;
+          -webkit-overflow-scrolling: touch;
+        }
+        body {
+          -webkit-overflow-scrolling: touch;
+        }
+      `
+      document.head.appendChild(style)
+      
+      return () => {
+        document.head.removeChild(style)
+      }
+    }
+    
+    // Initialize Lenis for smooth scrolling on desktop only
     const lenisInstance = new Lenis({
-      duration: 1.2, // slightly smoother
+      duration: 1.2,
       easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
       touchMultiplier: 1.2,

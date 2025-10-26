@@ -4,6 +4,28 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Mobile smooth scrolling optimization */
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  body {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: none;
+  }
+  
+  /* Disable Lenis on mobile */
+  .lenis {
+    overflow: visible !important;
+  }
+  
+  .lenis-smooth {
+    scroll-behavior: smooth !important;
+  }
+}
+
 @layer base {
   body {
     font-family: 'Inter', sans-serif;

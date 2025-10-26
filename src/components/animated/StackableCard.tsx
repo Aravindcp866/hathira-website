@@ -115,13 +115,11 @@ function StackableCard({ stackCardData }: StackableCardProps): JSX.Element {
           </Splide>
         </div>
       ) : (
-        <ScrollStack
-          useWindowScroll={true}
-          children={items.map((item, idx) => (
+        <ScrollStack useWindowScroll={true}>
+          {items.map((item, idx) => (
             <div key={`ssi-${idx}`}>
-              <ScrollStackItem
-                itemClassName="bg-white"
-                children={(
+              <ScrollStackItem itemClassName="bg-white">
+                {(
                   <div className="flex items-center h-full">
                     {/* Left side - Image */}
                     {item.image && item.image.url && (
@@ -152,10 +150,10 @@ function StackableCard({ stackCardData }: StackableCardProps): JSX.Element {
                     </div>
                   </div>
                 )}
-              />
+              </ScrollStackItem>
             </div>
           ))}
-        />
+        </ScrollStack>
       )}
     </div>
   )

@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Star, Heart, Sparkles, Clock, DollarSign, CheckCircle, Phone } from 'lucide-react'
+import Image from 'next/image'
 import { BridalMakeupData } from '@/types'
 
 interface BridalMakeupProps {
@@ -45,10 +46,11 @@ export default function BridalMakeup({ bridalData }: BridalMakeupProps) {
         {bridalData.heroImage && (
           <div className="mb-16">
             <div className="relative h-96 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-              <img
+              <Image
                 src={bridalData.heroImage.asset.url}
                 alt={bridalData.heroImage.alt || 'Bridal Makeup'}
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
               <div className="absolute bottom-6 left-6 text-white">
@@ -76,11 +78,12 @@ export default function BridalMakeup({ bridalData }: BridalMakeupProps) {
                   onClick={() => setSelectedService(selectedService === index ? null : index)}
                 >
                   {service.image && (
-                    <div className="mb-4">
-                      <img
+                    <div className="mb-4 relative h-48">
+                      <Image
                         src={service.image.asset.url}
                         alt={service.image.alt || service.name}
-                        className="w-full h-48 object-cover rounded-lg"
+                        fill
+                        className="object-cover rounded-lg"
                       />
                     </div>
                   )}
@@ -138,11 +141,14 @@ export default function BridalMakeup({ bridalData }: BridalMakeupProps) {
                 >
                   <div className="flex items-center gap-4 mb-4">
                     {testimonial.image && (
-                      <img
-                        src={testimonial.image.asset.url}
-                        alt={testimonial.name}
-                        className="w-12 h-12 rounded-full object-cover"
-                      />
+                      <div className="relative w-12 h-12">
+                        <Image
+                          src={testimonial.image.asset.url}
+                          alt={testimonial.name}
+                          fill
+                          className="rounded-full object-cover"
+                        />
+                      </div>
                     )}
                     <div>
                       <h4 className="font-semibold text-gray-800">{testimonial.name}</h4>
@@ -151,7 +157,7 @@ export default function BridalMakeup({ bridalData }: BridalMakeupProps) {
                       </div>
                     </div>
                   </div>
-                  <p className="text-gray-600 italic">"{testimonial.text}"</p>
+                  <p className="text-gray-600 italic">&ldquo;{testimonial.text}&rdquo;</p>
                 </motion.div>
               ))}
             </div>

@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { ChevronDown, CheckCircle } from 'lucide-react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 interface Treatment {
   name: string
@@ -27,25 +28,10 @@ interface ServiceCardProps {
   isFirst?: boolean
 }
 
-const iconMap: { [key: string]: string } = {
-  sparkles: '✨',
-  sun: '☀️',
-  activity: '📈',
-  droplets: '💧',
-  gem: '💎',
-  wind: '💨',
-  snowflake: '❄️',
-  umbrella: '☂️',
-  'paint-brush': '🎨',
-  'gantt-chart': '📊',
-  'person-standing': '🧍',
-  'stretch-horizontal': '↔️',
-}
 
 export default function ServiceCard({ 
   title, 
   description,
-  icon,
   image,
   category, 
   treatments,
@@ -127,11 +113,12 @@ export default function ServiceCard({
       {/* Image - show on desktop, expand on mobile */}
       {image && (
         <div className={`transition-all duration-300 overflow-hidden ${isExpanded ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'} md:max-h-none md:opacity-100`}>
-          <div className="h-full w-full">
-            <img 
+          <div className="relative h-48 w-full">
+            <Image 
               src={image.asset.url} 
               alt={image.alt || title}
-              className="w-full h-48 object-cover rounded-lg shadow-sm"
+              fill
+              className="object-cover rounded-lg shadow-sm"
             />
           </div>
         </div>

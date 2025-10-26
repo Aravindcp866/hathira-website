@@ -8,7 +8,7 @@ import FloatingButtons from '@/components/FloatingButtons'
 import ClientWrapper from '@/components/ClientWrapper'
 import FAQ from '@/components/FAQ'
 import BridalMakeup from '@/components/BridalMakeup'
-import { Service, StackCardData, FAQData, BridalMakeupData } from '@/types'
+import { Service } from '@/types'
 import { client, urlFor } from '../../lib/sanity'
 import { HERO_QUERY, SERVICES_QUERY, CONTACT_INFO_QUERY, STACKCARD_QUERY, FAQ_QUERY, BRIDAL_MAKEUP_QUERY } from '../../lib/queries'
 import StackableCard from '@/components/animated/StackableCard'
@@ -31,7 +31,7 @@ async function getData() {
       heroData: heroData ? {
         ...heroData,
         backgroundImage: heroData.backgroundImage ? urlFor(heroData.backgroundImage).url() : undefined,
-        carouselImages: heroData.carouselImages && Array.isArray(heroData.carouselImages) ? heroData.carouselImages.map((slide: any) => ({
+        carouselImages: heroData.carouselImages && Array.isArray(heroData.carouselImages) ? heroData.carouselImages.map((slide: any) => ({ // eslint-disable-line @typescript-eslint/no-explicit-any
           ...slide,
           image: slide.image ? urlFor(slide.image).url() : ''
         })) : [],
@@ -52,7 +52,7 @@ async function getData() {
       } : null,
       stackCardData: stackCardData ? {
         ...stackCardData,
-        cards: stackCardData.cards && Array.isArray(stackCardData.cards) ? stackCardData.cards.map((card: any) => ({
+        cards: stackCardData.cards && Array.isArray(stackCardData.cards) ? stackCardData.cards.map((card: any) => ({ // eslint-disable-line @typescript-eslint/no-explicit-any
           ...card,
           image: {
             asset: {

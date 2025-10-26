@@ -13,7 +13,7 @@ export default defineConfig({
     visionTool(),
   ],
   schema: {
-    types: schemaTypes,
+    types: schemaTypes as any,
   },
   basePath: '/studio',
 })

@@ -103,3 +103,45 @@ export const FAQ_QUERY = groq`
     }
   }
 `
+
+export const BRIDAL_MAKEUP_QUERY = groq`
+  *[_type == "bridalMakeup"][0] {
+    title,
+    subtitle,
+    heroImage {
+      asset-> {
+        _id,
+        url
+      },
+      alt
+    },
+    services[] {
+      name,
+      description,
+      price,
+      duration,
+      image {
+        asset-> {
+          _id,
+          url
+        },
+        alt
+      },
+      features,
+      featured
+    },
+    testimonials[] {
+      name,
+      text,
+      rating,
+      image {
+        asset-> {
+          _id,
+          url
+        }
+      }
+    },
+    ctaText,
+    ctaLink
+  }
+`

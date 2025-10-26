@@ -88,3 +88,47 @@ export interface FAQData {
   subtitle?: string
   faqItems: FAQItem[]
 }
+
+export interface BridalService {
+  name: string
+  description: string
+  price: string
+  duration: string
+  image?: {
+    asset: {
+      _id: string
+      url: string
+    }
+    alt?: string
+  }
+  features: string[]
+  featured: boolean
+}
+
+export interface BridalTestimonial {
+  name: string
+  text: string
+  rating: number
+  image?: {
+    asset: {
+      _id: string
+      url: string
+    }
+  }
+}
+
+export interface BridalMakeupData {
+  title: string
+  subtitle?: string
+  heroImage?: {
+    asset: {
+      _id: string
+      url: string
+    }
+    alt?: string
+  }
+  services: BridalService[]
+  testimonials: BridalTestimonial[]
+  ctaText: string
+  ctaLink: string
+}

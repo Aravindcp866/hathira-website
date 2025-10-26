@@ -35,6 +35,9 @@ export default defineConfig({
             S.listItem()
             .title('Faq Section')
             .child(S.document().schemaType('faqs').documentId('faqs')),
+            S.listItem()
+            .title('Bridal Makeup Section')
+            .child(S.document().schemaType('bridalMakeup').documentId('bridalMakeup')),
           ]),
     }),
     visionTool(),

@@ -7,20 +7,22 @@ import Footer from '@/components/Footer'
 import FloatingButtons from '@/components/FloatingButtons'
 import ClientWrapper from '@/components/ClientWrapper'
 import FAQ from '@/components/FAQ'
-import { Service, StackCardData, FAQData } from '@/types'
+import BridalMakeup from '@/components/BridalMakeup'
+import { Service, StackCardData, FAQData, BridalMakeupData } from '@/types'
 import { client, urlFor } from '../../lib/sanity'
-import { HERO_QUERY, SERVICES_QUERY, CONTACT_INFO_QUERY, STACKCARD_QUERY, FAQ_QUERY } from '../../lib/queries'
+import { HERO_QUERY, SERVICES_QUERY, CONTACT_INFO_QUERY, STACKCARD_QUERY, FAQ_QUERY, BRIDAL_MAKEUP_QUERY } from '../../lib/queries'
 import StackableCard from '@/components/animated/StackableCard'
 
 // Fetch data from Sanity at build time
 async function getData() {
   try {
-    const [heroData, servicesData, contactData, stackCardData, faqData] = await Promise.all([
+    const [heroData, servicesData, contactData, stackCardData, faqData, bridalData] = await Promise.all([
       client.fetch(HERO_QUERY),
       client.fetch(SERVICES_QUERY),
       client.fetch(CONTACT_INFO_QUERY),
       client.fetch(STACKCARD_QUERY),
-      client.fetch(FAQ_QUERY)
+      client.fetch(FAQ_QUERY),
+      client.fetch(BRIDAL_MAKEUP_QUERY)
     ])
 
 
@@ -60,7 +62,8 @@ async function getData() {
           }
         })) : []
       } : null,
-      faqData: faqData || null
+      faqData: faqData || null,
+      bridalData: bridalData || null
     }
   } catch (error) {
     console.error('Error fetching data from Sanity:', error)
@@ -70,14 +73,15 @@ async function getData() {
       servicesData: [],
       contactData: null,
       stackCardData: null,
-      faqData: null
+      faqData: null,
+      bridalData: null
     }
   }
 }
 
 export default async function Home() {
   // Fetch data from Sanity at build time
-  const { heroData, servicesData, contactData, stackCardData, faqData } = await getData()
+  const { heroData, servicesData, contactData, stackCardData, faqData, bridalData } = await getData()
   
   // Debug: Log FAQ data
   console.log('FAQ data:', faqData)
@@ -173,6 +177,11 @@ export default async function Home() {
 
         {stackCardData && (
           <StackableCard stackCardData={stackCardData} />
+        )}
+
+        {/* Bridal Makeup Section - only render if we have bridal data */}
+        {bridalData && (
+          <BridalMakeup bridalData={bridalData} />
         )}
 
         {/* FAQ Section - only render if we have FAQ data */}

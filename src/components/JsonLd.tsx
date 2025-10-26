@@ -133,7 +133,7 @@ export const localBusinessSchema = {
   "@type": "LocalBusiness",
   "@id": "https://www.hathira-wellness.in/#business",
   "name": "Hathira Wellness",
-  "description": "Premier cosmetic and aesthetic clinic in Kollam, Kerala offering advanced treatments for skin, hair, and body.",
+  "description": "Premier cosmetic and aesthetic clinic in Trivandrum, Kerala offering advanced treatments for skin, hair, and body.",
   "url": "http://hathira-wellness.in",
   "telephone": "+91-8075870652",
   "email": "info@hathiraclinic.com",
@@ -168,7 +168,7 @@ export const organizationSchema = {
   "alternateName": "Hathira Aesthetic Clinic",
   "url": "http://hathira-wellness.in",
   "logo": "https://www.hathira-wellness.in/favicon.png",
-  "description": "Leading cosmetic and aesthetic clinic in Kollam, Kerala providing world-class treatments for skin, hair, and body enhancement.",
+  "description": "Leading cosmetic and aesthetic clinic in Trivandrum, Kerala providing world-class treatments for skin, hair, and body enhancement.",
   "foundingDate": "2020",
   "founder": {
     "@type": "Person",

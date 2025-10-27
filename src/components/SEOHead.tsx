@@ -1,6 +1,5 @@
-'use client'
-
 import Head from 'next/head'
+import JsonLd, { breadcrumbSchema, faqSchema, localBusinessSchema, medicalBusinessSchema, organizationSchema } from './JsonLd'
 
 interface SEOHeadProps {
   title?: string
@@ -20,7 +19,16 @@ export default function SEOHead({
     'hair treatment Trivandrum',
     'beauty clinic Trivandrum',
     'dermatologist Trivandrum',
-    'aesthetic treatments Kerala'
+    'aesthetic treatments Kerala',
+    'fat loss treatment',
+    'bridal makeup Trivandrum',
+    'aesthetic treatments',
+    'cosmetic surgery Kerala',
+    'skin rejuvenation Trivandrum',
+    'hair fall treatment Trivandrum',
+    'hair loss treatment Trivandrum',
+    'hair loss treatment Kerala',
+    'hair loss treatment Trivandrum',
   ],
   canonical = 'https://www.hathira-wellness.in',
   ogImage = '/ogImage.png',
@@ -30,9 +38,18 @@ export default function SEOHead({
     <Head>
       {/* Basic Meta Tags */}
       <title>{title}</title>
+      <meta
+          name="google-site-verification"
+          content="HgCRiuBBFTLozM0Ssih7P64oP2n2mHRkNVWvKdZkhbs"
+        />
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords.join(', ')} />
       <link rel="canonical" href={canonical} />
+      <JsonLd data={medicalBusinessSchema} />
+      <JsonLd data={localBusinessSchema} />
+      <JsonLd data={organizationSchema} />
+      <JsonLd data={faqSchema} />
+      <JsonLd data={breadcrumbSchema} />
       
       {/* Robots */}
       {noindex && <meta name="robots" content="noindex, nofollow" />}

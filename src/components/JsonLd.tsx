@@ -1,5 +1,3 @@
-'use client'
-
 import Script from 'next/script'
 
 interface JsonLdProps {
@@ -9,8 +7,9 @@ interface JsonLdProps {
 export default function JsonLd({ data }: JsonLdProps) {
   return (
     <Script
-      id="json-ld"
+      id={`json-ld-${Math.random().toString(36).substr(2, 9)}`}
       type="application/ld+json"
+      strategy="afterInteractive"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
     />
   )

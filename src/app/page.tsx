@@ -10,7 +10,6 @@ import FAQ from '@/components/FAQ'
 import BridalMakeup from '@/components/BridalMakeup'
 import FatLoss from '@/components/FatLoss'
 import Section from '@/components/Section'
-import JsonLd, { medicalBusinessSchema, localBusinessSchema, organizationSchema, faqSchema, breadcrumbSchema } from '@/components/JsonLd'
 import { Service } from '@/types'
 import { client, urlFor } from '../../lib/sanity'
 import { HERO_QUERY, SERVICES_QUERY, CONTACT_INFO_QUERY, FAQ_QUERY, BRIDAL_MAKEUP_QUERY, FAT_LOSS_QUERY } from '../../lib/queries'
@@ -89,13 +88,6 @@ export default async function Home() {
 
   return (
     <ClientWrapper>
-      {/* JSON-LD Structured Data */}
-      <JsonLd data={medicalBusinessSchema} />
-      <JsonLd data={localBusinessSchema} />
-      <JsonLd data={organizationSchema} />
-      <JsonLd data={faqSchema} />
-      <JsonLd data={breadcrumbSchema} />
-      
       <main className="antialiased">
         <Header />
         

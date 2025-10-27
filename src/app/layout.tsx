@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, Geist } from 'next/font/google'
 import './globals.css'
 import { LenisProvider } from '@/contexts/LenisContext'
+import { medicalBusinessSchema, localBusinessSchema, organizationSchema, faqSchema, breadcrumbSchema } from '@/components/JsonLd'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -106,7 +107,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'your-google-verification-code',
+    google: 'google449c4336c587e1d4',
     yandex: 'your-yandex-verification-code',
     yahoo: 'your-yahoo-verification-code',
   },
@@ -156,6 +157,39 @@ export default function RootLayout({
         <meta name="business:contact_data:locality" content="Trivandrum" />
         <meta name="business:contact_data:region" content="Kerala" />
         <meta name="business:contact_data:country_name" content="India" />
+        <meta name="google-site-verification" content="HgCRiuBBFTLozM0Ssih7P64oP2n2mHRkNVWvKdZkhbs" />
+        
+        {/* JSON-LD Structured Data - Server-side rendered */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(medicalBusinessSchema)
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessSchema)
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema)
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqSchema)
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(breadcrumbSchema)
+          }}
+        />
       </head>
       <body className={`${inter.variable} ${geist.variable} antialiased`}>
         <LenisProvider>

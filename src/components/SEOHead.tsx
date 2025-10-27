@@ -52,6 +52,7 @@ export default function SEOHead({
       
       {/* Open Graph */}
       <meta property="og:title" content={title} />
+      <meta name="google-site-verification" content="HgCRiuBBFTLozM0Ssih7P64oP2n2mHRkNVWvKdZkhbs" />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={`https://www.hathira-wellness.in/ogImage.png`} />
       <meta property="og:url" content={canonical} />

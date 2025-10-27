@@ -38,10 +38,6 @@ export default function SEOHead({
     <Head>
       {/* Basic Meta Tags */}
       <title>{title}</title>
-      <meta
-          name="google-site-verification"
-          content="HgCRiuBBFTLozM0Ssih7P64oP2n2mHRkNVWvKdZkhbs"
-        />
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords.join(', ')} />
       <link rel="canonical" href={canonical} />
